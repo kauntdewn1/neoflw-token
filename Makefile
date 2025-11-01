@@ -14,7 +14,8 @@ help: ## Mostra esta mensagem de ajuda
 
 install: ## Instala plugins e dependências
 	@echo "📦 Instalando plugins..."
-	npm run plugins
+	@npm run plugins || true
+	@echo "✅ Plugins verificados (ignorando avisos se já instalados)"
 
 compile: ## Compila contratos Solidity
 	@echo "🔨 Compilando contratos..."
@@ -65,6 +66,24 @@ verify-vault: ## Verifica vault no Etherscan
 verify-claim: ## Verifica claim no Etherscan
 	@echo "✅ Verificando claim no Etherscan..."
 	ape etherscan verify NeoFlowClaim --network $(NETWORK)
+
+# Verificação no Blockscout (Manual via interface web)
+verify-blockscout: ## Instruções para verificar no Blockscout
+	@echo "📋 Para verificar no Blockscout:"
+	@echo "   1. Acesse: https://eth-sepolia.blockscout.com/address/0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87"
+	@echo "   2. Vá para aba 'Contract'"
+	@echo "   3. Clique em 'Verify & publish'"
+	@echo "   4. Use Standard JSON Input de: sourcify_standard_json.json"
+	@echo "      ⚠️ IMPORTANTE: Use sourcify_standard_json.json (tem campo 'language')"
+	@echo "      ❌ NÃO use etherscan_verification_fixed.json (formato Ape, sem 'language')"
+	@echo ""
+	@echo "📖 Guia completo: docs/verification/VERIFICAR_BLOCKSCOUT.md"
+
+# Corrigir JSON para Blockscout (se necessário)
+fix-blockscout-json: ## Corrige JSON para formato Blockscout
+	@echo "🔧 Corrigindo JSON para Blockscout..."
+	python scripts/fix_json_for_blockscout.py
+	@echo "✅ JSON corrigido salvo em: blockscout_standard_json.json"
 
 # Setup e Configuração
 setup-claim: ## Script auxiliar para configurar claim

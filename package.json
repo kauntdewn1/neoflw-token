@@ -5,7 +5,7 @@
     "scripts": {
       "init": "ape init neoflow",
       "compile": "ape compile",
-      "plugins": "ape plugins install solidity alchemy etherscan",
+      "plugins": "ape plugins install solidity alchemy etherscan || true",
       "account:import": "ape accounts import neoflow-admin",
       "test": "ape test",
       "deploy:token": "ape run deploy_token --network ethereum:sepolia",

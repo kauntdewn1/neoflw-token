@@ -1,16 +1,40 @@
 # ✅ Contrato Verificado com Sucesso!
 
-## 🎉 Status Atual
+## 🌐 Rede: Ethereum Sepolia (Testnet)
 
-- ✅ **Contrato verificado no Sourcify**: https://repo.sourcify.dev/11155111/0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87
-- ✅ **Versão do compilador**: 0.8.30+commit.73712a01
-- ✅ **Etherscan reconhecerá automaticamente** a verificação do Sourcify
+**⚠️ IMPORTANTE:** Este contrato está na **Sepolia Testnet**.
+
+- **Rede:** Ethereum Sepolia (Testnet)
+- **Chain ID:** 11155111
+- **Explorer:** https://sepolia.etherscan.io
+- **Token Address:** `0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87`
 
 ---
 
-## 📋 Próximo Passo: Atualizar Informações do Token no Etherscan
+## 🎉 Status Atual
 
-**Importante:** O código do contrato está verificado ✅, mas as informações do token (logo, nome, descrição) ainda precisam ser atualizadas.
+- ✅ **Contrato verificado no Sourcify**: https://repo.sourcify.dev/11155111/0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87
+- ✅ **Rede:** Ethereum Sepolia (Testnet)
+- ✅ **Versão do compilador**: 0.8.30+commit.73712a01
+- ✅ **Etherscan Sepolia reconhecerá automaticamente** a verificação do Sourcify
+
+### ⚠️ Sobre "Partial Match" no Blockscout
+
+**Se você vê "Contract Source Code Verified (Partial Match)" no Blockscout:**
+- ✅ **Isso é normal e aceitável!**
+- ✅ O contrato está verificado e funcional
+- ⚠️ "Partial Match" significa que há pequenas diferenças em como o Blockscout compara o bytecode
+- ✅ **Não é um problema** - código está público e verificável
+
+**📖 Explicação completa:** Veja [`PARTIAL_MATCH_EXPLICACAO.md`](./PARTIAL_MATCH_EXPLICACAO.md)
+
+---
+
+## 📋 Próximo Passo: Atualizar Informações do Token no Etherscan Sepolia
+
+**⚠️ IMPORTANTE:** O código do contrato está verificado ✅, mas as informações do token (logo, nome, descrição) ainda precisam ser atualizadas.
+
+**📖 Guia Completo:** Veja o documento detalhado: [`docs/token-info/COMO_APROVAR_AVATAR.md`](../token-info/COMO_APROVAR_AVATAR.md)
 
 ### 🚀 Método Rápido: Script Automatizado
 
@@ -148,6 +172,8 @@ Após atualizar, o token aparecerá com:
 
 | Campo | Valor |
 |-------|-------|
+| **Network** | `Ethereum Sepolia (Testnet)` |
+| **Chain ID** | `11155111` |
 | **Address** | `0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87` |
 | **Name** | `NeoFlowOFF` |
 | **Symbol** | `NEOFLW` |
