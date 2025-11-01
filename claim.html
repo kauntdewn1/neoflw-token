@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 Claim Tokens NEOFLW</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .step-content {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            margin-left: 10px;
+            box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 6px 20px rgba(108, 117, 125, 0.6);
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border: 2px solid #2196F3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-box strong {
+            color: #1976D2;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        
+        .links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        
+        .link-item {
+            margin: 10px 0;
+        }
+        
+        .link-item a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .link-item a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .btn {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 Claim Tokens NEOFLW</h1>
+        <p class="subtitle">Reivindique seus tokens em 3 passos simples</p>
+        
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">1</span>
+                Obter Sepolia ETH (se necessário)
+            </div>
+            <div class="step-content">
+                Você precisa de ~0.0001 Sepolia ETH para pagar o gas. Se não tiver, use o faucet:
+            </div>
+            <a href="https://www.alchemy.com/faucets/ethereum-sepolia" target="_blank" class="btn btn-secondary">
+                🔵 Obter Sepolia ETH Grátis
+            </a>
+        </div>
+        
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">2</span>
+                Conectar na Rede Sepolia
+            </div>
+            <div class="step-content">
+                Abra MetaMask e mude para rede <strong>"Sepolia"</strong> (não Mainnet!). 
+                Se não tiver Sepolia, adicione manualmente:
+                <br><br>
+                <strong>RPC URL:</strong> https://rpc.sepolia.org<br>
+                <strong>Chain ID:</strong> 11155111<br>
+                <strong>Currency:</strong> ETH
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">3</span>
+                Fazer Claim
+            </div>
+            <div class="step-content">
+                Clique no botão abaixo para abrir o Etherscan. Depois:
+                <br><br>
+                1. Conecte sua carteira<br>
+                2. Role até "claimTokens"<br>
+                3. Clique em "Write"<br>
+                4. Confirme no MetaMask<br>
+                5. ✅ Pronto!
+            </div>
+            <a href="https://sepolia.etherscan.io/address/0xEE96C0813e84bb7Ea162b1594b8Bff61dB79A7Ca#writeContract" target="_blank" class="btn">
+                🚀 Fazer Claim Agora
+            </a>
+        </div>
+        
+        <div class="info-box">
+            <strong>💰 Você receberá:</strong> 1,000 NEOFLW<br>
+            <strong>⛽ Custo:</strong> ~0.0001 Sepolia ETH (você paga)<br>
+            <strong>⏱️ Tempo:</strong> ~30 segundos
+        </div>
+        
+        <div class="warning">
+            ⚠️ <strong>IMPORTANTE:</strong> Certifique-se de estar na rede <strong>SEPOLIA</strong> (não Mainnet)!
+        </div>
+        
+        <div class="links">
+            <h3>📚 Links Úteis:</h3>
+            <div class="link-item">
+                <a href="https://sepolia.etherscan.io/address/0xEE96C0813e84bb7Ea162b1594b8Bff61dB79A7Ca" target="_blank">
+                    Ver Contrato no Etherscan
+                </a>
+            </div>
+            <div class="link-item">
+                <a href="https://www.alchemy.com/faucets/ethereum-sepolia" target="_blank">
+                    Faucet Sepolia (obter ETH grátis)
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

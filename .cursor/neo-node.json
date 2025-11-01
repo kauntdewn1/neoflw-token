@@ -1,0 +1,47 @@
+{
+    "name": "neoflow",
+    "description": "Node de contratos inteligentes modulares do ecossistema NEØ FLOWOFF. Contém token, staking, governança e whitelist, escritos com Ape Framework e Solidity.",
+    "version": "0.1.0",
+    "tags": ["web3", "dao", "smart-contracts", "token", "ape-framework"],
+    "entry_point": "ape-config.yaml",
+    "commands": {
+      "init": "ape init neoflow",
+      "install_plugins": "ape plugins install solidity alchemy etherscan",
+      "deploy_token": "ape run deploy_token --network ethereum:goerli",
+      "verify_token": "ape etherscan verify NeoFlowToken --network ethereum:goerli",
+      "run_tests": "ape test",
+      "unlock_wallet": "ape accounts import flowoff-admin",
+      "compile": "ape compile"
+    },
+    "structure": {
+      "contracts/": "Contratos inteligentes em Solidity",
+      "scripts/": "Scripts de deploy e orquestração com Ape",
+      "tests/": "Testes unitários com pytest",
+      "ape-config.yaml": "Configurações da rede, plugins e dependências",
+      "README.md": "Documentação do protocolo"
+    },
+    "env": {
+      "ALCHEMY_API_KEY": "CHAVE_OBRIGATÓRIA",
+      "ETHERSCAN_API_KEY": "OPCIONAL_PARA_VERIFICAÇÃO"
+    },
+    "accounts": {
+      "flowoff-admin": {
+        "type": "local",
+        "encrypted": true,
+        "description": "Conta principal para deploys e testes"
+      }
+    },
+    "notes": [
+      "Esse node é modular. Cada contrato deve ser testado e deployado isoladamente.",
+      "Use o script `deploy_token.py` antes de ativar módulos como staking ou DAO.",
+      "As dependências usam OpenZeppelin 4.9.3.",
+      "Deploy padrão é na Goerli. Pode ser adaptado para Base, Polygon ou Localhost."
+    ],
+    "next_steps": [
+      "Implementar `StakingVault.sol` com lock de 6 meses e reward escalonado",
+      "Criar `WhitelistAccess.sol` e integrar com WebApp",
+      "Desenvolver `DaoGovernor.sol` com sistema de proposals + revoke rights",
+      "Gerar bindings para front-end com wagmi/viem"
+    ]
+  }
+  

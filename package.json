@@ -1,0 +1,34 @@
+{
+    "name": "neoflow",
+    "version": "1.0.0",
+    "description": "Orquestração terminal para o protocolo NEOFLOW com Ape Framework",
+    "scripts": {
+      "init": "ape init neoflow",
+      "compile": "ape compile",
+      "plugins": "ape plugins install solidity alchemy etherscan",
+      "account:import": "ape accounts import neoflow-admin",
+      "test": "ape test",
+      "deploy:token": "ape run deploy_token --network ethereum:sepolia",
+      "deploy:vault": "ape run deploy_vault --network ethereum:sepolia",
+      "deploy:claim": "ape run deploy_claim --network ethereum:sepolia",
+      "verify:token": "ape etherscan verify NeoFlowToken --network ethereum:sepolia",
+      "verify:vault": "ape etherscan verify StakingVault --network ethereum:sepolia",
+      "verify:claim": "ape etherscan verify NeoFlowClaim --network ethereum:sepolia",
+      "deploy:token:goerli": "ape run deploy_token --network ethereum:goerli",
+      "deploy:vault:goerli": "ape run deploy_vault --network ethereum:goerli",
+      "deploy:local": "ape run deploy_token --network local",
+      "console": "ape console",
+      "clean": "rm -rf build .ape",
+      "start:dev": "npm run plugins && npm run compile && npm run test && npm run deploy:token"
+    },
+    "keywords": [
+      "web3",
+      "smart-contracts",
+      "ape-framework",
+      "neoflow",
+      "modular-dao"
+    ],
+    "author": "MELLØ",
+    "license": "MIT"
+  }
+  

@@ -1,0 +1,44 @@
+# ✅ Argumentos do Construtor - Formato Correto
+
+## Para NeoFlowToken
+
+**Tipo**: `constructor(uint256 initialSupply)`
+
+**Valor**: 1,000,000,000 tokens (1 bilhão) com 18 decimais
+
+**Valor em wei**: 1000000000000000000000000000
+
+**Formato ABI-encoded (para Etherscan):**
+```
+0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000
+```
+
+---
+
+## 📋 Como Usar
+
+1. No Etherscan, na página de verificação
+2. Procure pelo campo **"Constructor Arguments"** ou **"Constructor Arguments (ABI-encoded)"**
+3. Cole este valor (sem espaços):
+   ```
+   0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000
+   ```
+
+4. Ou use a ferramenta do Etherscan:
+   - Clique em **"Constructor Arguments"**
+   - Digite: `1000000000000000000000000000`
+   - O Etherscan converterá automaticamente
+
+---
+
+## 🔍 Verificação
+
+Este valor representa:
+- **Decimal**: 1,000,000,000,000,000,000,000,000,000
+- **Hexadecimal**: 0x33b2e3c9fd0803ce8000000
+- **Padding**: Preenchido com zeros à esquerda até 64 caracteres (32 bytes)
+
+---
+
+**Use este valor exato no Etherscan!** ✅
+

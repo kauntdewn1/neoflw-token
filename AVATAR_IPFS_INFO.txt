@@ -1,0 +1,22 @@
+# Informações do Avatar NeoFlow Token
+
+## 🌐 URL IPFS (Lighthouse Storage)
+https://gateway.lighthouse.storage/ipfs/bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i
+
+## 🔑 CID (Content Identifier)
+bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i
+
+## 📁 Arquivo Original
+public/images/avatar_neoflow.png
+
+## 📝 Notas
+- Upload realizado via Lighthouse Storage
+- Gateway alternativo: https://ipfs.io/ipfs/bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i
+- Data: 2024-11-01
+
+## 🔗 Outros Gateways IPFS
+- Lighthouse: https://gateway.lighthouse.storage/ipfs/bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i
+- IPFS.io: https://ipfs.io/ipfs/bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i
+- Cloudflare: https://cloudflare-ipfs.com/ipfs/bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i
+- Pinata: https://gateway.pinata.cloud/ipfs/bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i
+

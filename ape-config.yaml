@@ -1,0 +1,31 @@
+# ape-config.yaml
+name: neoflow
+
+plugins:
+  - name: solidity
+  - name: alchemy
+  - name: etherscan
+
+dependencies:
+  - name: OpenZeppelin
+    github: OpenZeppelin/openzeppelin-contracts
+    version: 4.9.6  # Versão estável (2024-2025) compatível com Solidity 0.8.18
+    # Nota: v5.x requer Solidity ^0.8.20 - manter v4.x para compatibilidade atual
+
+networks:
+  ethereum:
+    mainnet:
+      default_provider: alchemy
+      providers:
+        alchemy:
+          api_key: ${ALCHEMY_API_KEY}
+          request_timeout: 60
+    sepolia:
+      default_provider: alchemy
+      providers:
+        alchemy:
+          api_key: ${ALCHEMY_API_KEY}
+          request_timeout: 60
+    goerli:
+      default_provider: alchemy
+

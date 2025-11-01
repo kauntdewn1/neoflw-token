@@ -1,0 +1,19 @@
+{
+  "name": "neoflow",
+  "version": "1.0.0",
+  "description": "Configuração NEØ para orquestração e CI/CD",
+  "scripts": {
+    "compile": "npm run compile",
+    "test": "npm run test",
+    "deploy": "npm run deploy:token",
+    "verify": "npm run verify:token"
+  },
+  "networks": {
+    "goerli": "ethereum:goerli",
+    "local": "local"
+  },
+  "contracts": {
+    "token": "NeoFlowToken"
+  }
+}
+

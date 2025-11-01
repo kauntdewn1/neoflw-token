@@ -1,0 +1,30 @@
+{
+  "name": "NeoFlowOFF",
+  "symbol": "NEOFLW",
+  "decimals": 18,
+  "description": "Token oficial do protocolo NEOFLW - um protocolo modular DAO focado em governança descentralizada e crescimento sustentável.",
+  "image": "https://gateway.lighthouse.storage/ipfs/bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i",
+  "external_url": "neoflowoff.eth",
+  "logo": "https://gateway.lighthouse.storage/ipfs/bafkreiboigewtuwih7cfnxppte64l3zkktrb52serzloa4vqfrw5f3zh3i",
+  "website": "neoflowoff.eth",
+  "social": {
+    "twitter": "https://twitter.com/neoflw",
+    "discord": "https://discord.gg/neoflw",
+    "github": "https://github.com/neoflw"
+  },
+  "attributes": [
+    {
+      "trait_type": "Network",
+      "value": "Ethereum Sepolia"
+    },
+    {
+      "trait_type": "Type",
+      "value": "ERC-20"
+    },
+    {
+      "trait_type": "Total Supply",
+      "value": "1000000000"
+    }
+  ]
+}
+

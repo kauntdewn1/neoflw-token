@@ -1,0 +1,39 @@
+🎁 COMO FAZER CLAIM DOS SEUS TOKENS NEOFLW
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ PASSO 1: Obter Sepolia ETH (se não tiver)
+   → https://www.alchemy.com/faucets/ethereum-sepolia
+   → Cole seu endereço e solicite ETH grátis
+
+✅ PASSO 2: Conectar na Rede Sepolia
+   → Abra MetaMask
+   → Mude para rede "Sepolia" (não Mainnet!)
+
+✅ PASSO 3: Fazer Claim
+   → Clique neste link:
+   → https://sepolia.etherscan.io/address/0xEE96C0813e84bb7Ea162b1594b8Bff61dB79A7Ca#writeContract
+   
+   → Conecte sua carteira
+   → Role até "claimTokens"
+   → Clique em "Write"
+   → Confirme no MetaMask
+   → ✅ PRONTO!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 INFORMAÇÕES:
+   • Você receberá: 1,000 NEOFLW
+   • Custo: ~0.0001 Sepolia ETH (você paga)
+   • Tempo: ~30 segundos
+
+🔗 LINK DIRETO:
+   https://sepolia.etherscan.io/address/0xEE96C0813e84bb7Ea162b1594b8Bff61dB79A7Ca#writeContract
+
+❓ PROBLEMAS?
+   → Certifique-se de estar em SEPOLIA (não Mainnet)
+   → Precisa de Sepolia ETH para gas
+   → Seu endereço precisa estar na whitelist
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
