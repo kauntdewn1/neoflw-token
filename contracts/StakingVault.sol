@@ -20,6 +20,10 @@ contract StakingVault is Ownable, ReentrancyGuard {
     
     mapping(address => StakeInfo) public stakes;
     
+    // Tracking acumulado para eficiência
+    uint256 public totalStakedAmount; // Total de tokens em stakes ativos (não reivindicados)
+    uint256 public totalRewardsReserved; // Total de rewards reservados
+    
     event Staked(address indexed user, uint256 amount);
     event Claimed(address indexed user, uint256 amount, uint256 reward, uint256 total);
     event RewardsDeposited(address indexed owner, uint256 amount);
@@ -38,11 +42,17 @@ contract StakingVault is Ownable, ReentrancyGuard {
             "Transfer failed"
         );
         
+        uint256 rewardAmount = (_amount * REWARD_RATE) / 100;
+        
         stakes[msg.sender] = StakeInfo({
             amount: _amount,
             startTime: block.timestamp,
             claimed: false
         });
+        
+        // Atualizar tracking acumulado
+        totalStakedAmount += _amount;
+        totalRewardsReserved += rewardAmount;
         
         emit Staked(msg.sender, _amount);
     }
@@ -69,6 +79,10 @@ contract StakingVault is Ownable, ReentrancyGuard {
         
         // Effects: Marcar como claimed ANTES da transferência (proteção CEI)
         userStake.claimed = true;
+        
+        // Atualizar tracking acumulado
+        totalStakedAmount -= userStake.amount;
+        totalRewardsReserved -= reward;
         
         // Interactions: Transferência após todas as validações e mudanças de estado
         require(
@@ -104,15 +118,12 @@ contract StakingVault is Ownable, ReentrancyGuard {
     }
     
     /**
-     * @dev Calcula o total de tokens comprometidos em stakes ativos (não reivindicados)
+     * @dev Retorna o total de tokens comprometidos em stakes ativos (não reivindicados)
      * @return totalStaked Tokens em stakes ativos + rewards pendentes
+     * @notice Agora usa tracking acumulado para eficiência O(1) em vez de iteração
      */
-    function getTotalStaked() public view returns (uint256 totalStaked) {
-        // Nota: Esta função requer iteração sobre todos os stakes, o que pode ser custoso.
-        // Para produção, considere manter um mapeamento de total acumulado.
-        // Por ora, retorna 0 como implementação simplificada.
-        // Em produção, considere adicionar um counter para eficiência.
-        return 0; // Implementação simplificada - requer redesign para eficiência
+    function getTotalStaked() public view returns (uint256) {
+        return totalStakedAmount + totalRewardsReserved;
     }
     
     /**
@@ -122,13 +133,6 @@ contract StakingVault is Ownable, ReentrancyGuard {
     function getAvailableBalance() public view returns (uint256) {
         uint256 balance = token.balanceOf(address(this));
         uint256 totalStaked = getTotalStaked();
-        
-        // Se não conseguimos calcular, retorna 0 por segurança
-        if (totalStaked == 0) {
-            // Por segurança, assume que todo o saldo está comprometido
-            // Owner deve verificar manualmente antes de usar emergencyWithdraw
-            return 0;
-        }
         
         if (balance >= totalStaked) {
             return balance - totalStaked;
