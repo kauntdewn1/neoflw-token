@@ -16,6 +16,7 @@ Você está em um **loop** onde o Blockscout:
 ### **Solução 1: Aceitar "Partial Match" (Recomendado para Testnet)**
 
 **Por que isso funciona:**
+
 - ✅ "Partial Match" **já é suficiente** para testnets
 - ✅ Contrato está verificado e funcional
 - ✅ Código está público
@@ -23,11 +24,13 @@ Você está em um **loop** onde o Blockscout:
 - ✅ Explorers reconhecem como verificado
 
 **Quando usar:**
+
 - ✅ Sepolia é testnet (não mainnet)
 - ✅ "Partial Match" já funciona perfeitamente
 - ✅ Não há necessidade real de "Full Match" em testnet
 
 **Próximos passos:**
+
 1. ✅ **Deixe como está** - "Partial Match" já é suficiente
 2. ✅ **Foque em atualizar a imagem do token** (Blockscout ou Etherscan)
 3. ✅ **Quando for para mainnet**, aí sim se preocupe com "Full Match"
@@ -39,7 +42,9 @@ Você está em um **loop** onde o Blockscout:
 **Tentativa 1: Interface do Blockscout**
 
 1. **Acesse a página do contrato:**
-   ```
+
+```
+
    https://eth-sepolia.blockscout.com/address/0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87
    ```
 

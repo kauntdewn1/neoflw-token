@@ -1,0 +1,149 @@
+═══════════════════════════════════════════════════════════════
+  📋 INSTRUÇÕES PARA PREENCHER O SOURCIFY - BOX TOKEN
+═══════════════════════════════════════════════════════════════
+
+📍 Endereço do Token: 0xBc972E10Df612C7d65054BC67aBCA96B3C22a017
+🌐 Rede: Binance Smart Chain (BSC) - Chain ID: 56
+
+═══════════════════════════════════════════════════════════════
+  OPÇÃO 1: TELA ATUAL (Single File / Arquivo Único)
+═══════════════════════════════════════════════════════════════
+
+Na tela atual, você precisa preencher:
+
+┌─────────────────────────────────────────────────────────────┐
+│ 1. COMPILER VERSION (Versão do Compilador)                  │
+└─────────────────────────────────────────────────────────────┘
+
+⚠️ IMPORTANTE: Você precisa descobrir qual versão foi usada!
+
+Como descobrir:
+  • Acesse: https://bscscan.com/address/0xBc972E10Df612C7d65054BC67aBCA96B3C22a017#code
+  • Se o contrato já está verificado, veja o código fonte
+  • Procure pela linha: pragma solidity ^0.8.XX;
+  • Ou veja a versão do compilador indicada na página
+
+Exemplos comuns:
+  • 0.8.30+commit.73712a01
+  • 0.8.20+commit.a1b79de6
+  • 0.8.19+commit.7dd6d404
+
+┌─────────────────────────────────────────────────────────────┐
+│ 2. CONTRACT IDENTIFIER (Identificador do Contrato)         │
+└─────────────────────────────────────────────────────────────┘
+
+⚠️ O valor atual "contracts/Storage.sol:Storage" está ERRADO!
+
+Formato correto:
+  caminho/do/arquivo.sol:NomeDoContrato
+
+Como descobrir:
+  Passo 1: Identifique o nome do arquivo .sol do contrato BOX
+           (ex: BoxToken.sol, Token.sol, InterboxToken.sol, etc)
+
+  Passo 2: Identifique o nome da classe/contrato dentro do arquivo
+           (geralmente é igual ao nome do arquivo)
+
+Exemplos possíveis:
+  • contracts/BoxToken.sol:BoxToken
+  • contracts/Token.sol:Token
+  • contracts/InterboxToken.sol:InterboxToken
+  • BoxToken.sol:BoxToken (se o arquivo está na raiz)
+
+❓ Como descobrir isso:
+  • Você precisa ter acesso ao código fonte do contrato BOX
+  • Ou verificar no BSCScan se já está verificado
+  • Ou perguntar para quem fez o deploy
+
+┌─────────────────────────────────────────────────────────────┐
+│ 3. UPLOAD DO ARQUIVO                                        │
+└─────────────────────────────────────────────────────────────┘
+
+• Faça upload do arquivo .sol do contrato BOX Token
+• Procure botão "Upload File" ou área de drag-and-drop
+• O arquivo deve ser o código fonte completo
+
+⚠️ Se o contrato usa dependências (OpenZeppelin, etc):
+  • Você pode precisar do código "flattened" (achatado)
+  • Ou usar o método Standard JSON Input (recomendado)
+
+═══════════════════════════════════════════════════════════════
+  OPÇÃO 2: STANDARD JSON INPUT (Recomendado) ✅
+═══════════════════════════════════════════════════════════════
+
+Para usar este método:
+  1. Procure por opção/aba "Standard JSON Input" na tela
+  2. Ou volte ao início e selecione esse método
+  3. Faça upload do arquivo JSON de compilação
+
+┌─────────────────────────────────────────────────────────────┐
+│ QUAL JSON ANEXAR?                                           │
+└─────────────────────────────────────────────────────────────┘
+
+O JSON que você precisa é o "Standard JSON Input" do Solidity.
+
+Onde encontrar:
+
+  ✅ Se você tem o projeto original (onde foi feito o deploy):
+     • Hardhat: artifacts/build-info/*.json
+     • Foundry: out/*.json  
+     • Truffle: build/contracts/*.json
+     • Ape Framework: .build/__local__.json
+
+  ❌ Se você NÃO tem o projeto original:
+     • Verifique se o contrato já está verificado no BSCScan
+     • Ou entre em contato com quem fez o deploy
+     • Ou use o método Single File acima
+
+═══════════════════════════════════════════════════════════════
+  📋 CHECKLIST RÁPIDO
+═══════════════════════════════════════════════════════════════
+
+Para Single File (tela atual):
+  [ ] Versão do compilador identificada
+  [ ] Nome do arquivo .sol conhecido
+  [ ] Nome da classe do contrato conhecido
+  [ ] Contract Identifier preenchido corretamente
+  [ ] Arquivo .sol pronto para upload
+
+Para Standard JSON Input:
+  [ ] Método Standard JSON Input selecionado
+  [ ] Arquivo JSON de compilação disponível
+  [ ] JSON faz upload corretamente
+
+═══════════════════════════════════════════════════════════════
+  🔍 VERIFICAR NO BSCSCAN PRIMEIRO
+═══════════════════════════════════════════════════════════════
+
+Antes de preencher, verifique:
+
+https://bscscan.com/address/0xBc972E10Df612C7d65054BC67aBCA96B3C22a017#code
+
+Se o contrato JÁ ESTÁ VERIFICADO:
+  ✅ Você pode ver o código fonte
+  ✅ Pode ver a versão do compilador usada
+  ✅ Pode identificar o nome do arquivo e contrato
+
+Se o contrato NÃO ESTÁ VERIFICADO:
+  ⚠️ Você precisará ter acesso ao código fonte original
+  ⚠️ Ou criar o Standard JSON manualmente
+
+═══════════════════════════════════════════════════════════════
+  🔗 LINKS ÚTEIS
+═══════════════════════════════════════════════════════════════
+
+• Sourcify: https://sourcify.dev/
+• Token BOX: https://bscscan.com/token/0xBc972E10Df612C7d65054BC67aBCA96B3C22a017
+• Contrato BOX: https://bscscan.com/address/0xBc972E10Df612C7d65054BC67aBCA96B3C22a017#code
+
+═══════════════════════════════════════════════════════════════
+  ⚠️ IMPORTANTE
+═══════════════════════════════════════════════════════════════
+
+• NÃO mexa nos arquivos do token NEOFLW (estão preservados)
+• Este guia é APENAS para o token BOX
+• Se precisar de mais informações, consulte a documentação em:
+  docs/verification/PREENCHER_SOURCIFY_AGORA.md
+
+═══════════════════════════════════════════════════════════════
+

@@ -14,6 +14,7 @@
 ## 🔒 O que está salvo localmente:
 
 ✅ **Todos os arquivos do projeto:**
+
 - Contratos (`contracts/`)
 - Scripts (`scripts/`)
 - Documentação (`docs/`)

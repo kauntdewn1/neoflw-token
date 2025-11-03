@@ -1,0 +1,91 @@
+═══════════════════════════════════════════════════════════════
+  ✅ CONSTRUCTOR ARGUMENTS COMPLETOS - CORRETOS
+═══════════════════════════════════════════════════════════════
+
+🔍 Análise do Input Data da transação revelou que o contrato
+   foi deployado com DOIS argumentos no constructor!
+
+═══════════════════════════════════════════════════════════════
+  📋 VALOR PARA COLAR NO BSCSCAN
+═══════════════════════════════════════════════════════════════
+
+Cole este valor completo no campo "Constructor Arguments":
+
+00000000000000000000000000000000000000000000d3c21bcecceda100000000000000000000000000000045f9c5af31678bc1dacddf348936a6a6e4d42a53
+
+═══════════════════════════════════════════════════════════════
+  📊 O QUE É CADA ARGUMENTO?
+═══════════════════════════════════════════════════════════════
+
+Argumento 1 (uint256):
+00000000000000000000000000000000000000000000d3c21bcecceda1000000
+→ Valor: 1,000,000 tokens (com 18 decimais)
+→ Em wei: 1000000000000000000000000
+
+Argumento 2 (address):
+00000000000000000000000045f9c5af31678bc1dacddf348936a6a6e4d42a53
+→ Endereço: 0x45f9c5af31678bc1dacddf348936a6a6e4d42a53
+→ Este é o signer
+
+═══════════════════════════════════════════════════════════════
+  ⚠️  IMPORTANTE
+═══════════════════════════════════════════════════════════════
+
+O código fonte atual (InterboxCoin_Flattened_Final.sol) mostra
+apenas 1 parâmetro no constructor (address _signer).
+
+Mas o contrato deployado na blockchain tinha DOIS parâmetros:
+1. uint256 (provavelmente initialSupply ou maxSupply)
+2. address _signer
+
+Isso pode significar que:
+- O código fonte foi modificado após o deploy
+- Ou há uma versão diferente do contrato que foi deployada
+
+═══════════════════════════════════════════════════════════════
+  🚀 COMO VERIFICAR NO BSCSCAN
+═══════════════════════════════════════════════════════════════
+
+1. Acesse:
+   https://bscscan.com/address/0xBc972E10Df612C7d65054BC67aBCA96B3C22a017#code
+
+2. Clique em "Verify and Publish"
+
+3. Preencha:
+   - Compiler Type: Solidity (Single file)
+   - Compiler Version: 0.8.24+commit.e11b9ed9 (ou tente outras versões)
+   - License: MIT License (MIT)
+   - Contract Code: Cole TODO o conteúdo de InterboxCoin_Flattened_Final.sol
+   - Constructor Arguments: COLE O VALOR COMPLETO ACIMA (128 caracteres)
+   - Optimization: Yes ✅
+   - Runs: 200
+
+4. Clique em "Verify and Publish"
+
+═══════════════════════════════════════════════════════════════
+  🔄 SE AINDA NÃO FUNCIONAR
+═══════════════════════════════════════════════════════════════
+
+Tente estas variações:
+
+1. Versões do compilador:
+   - 0.8.24+commit.e11b9ed9
+   - 0.8.23+commit.fca61c90
+   - 0.8.22+commit.4fc1097e
+
+2. Optimization:
+   - Yes, Runs: 200 (recomendado)
+   - Yes, Runs: 1000
+   - No (se nada funcionar)
+
+3. Verifique se o código fonte é exatamente o mesmo usado no deploy
+
+═══════════════════════════════════════════════════════════════
+  🔗 Links Úteis
+═══════════════════════════════════════════════════════════════
+
+- Transação: https://bscscan.com/tx/0xfc9fff5ef2bcee846a2eac7b5b05d83378beefdf486e2b050dce7fc2a3197e69
+- Contrato: https://bscscan.com/address/0xBc972E10Df612C7d65054BC67aBCA96B3C22a017#code
+
+═══════════════════════════════════════════════════════════════
+
