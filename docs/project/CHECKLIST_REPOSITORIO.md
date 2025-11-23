@@ -3,12 +3,14 @@
 ## 📋 Status Atual
 
 ### ✅ **Smart Contracts**
+
 - [x] Contratos implementados e testados
 - [x] 34/34 testes passando
 - [x] Otimizações aplicadas (StakingVault)
 - [x] DAO Governance implementado
 
 ### ✅ **Frontend**
+
 - [x] Estrutura completa criada
 - [x] Hooks Wagmi/Viem implementados
 - [x] Componentes React funcionais
@@ -16,12 +18,14 @@
 - [x] Erro de hidratação corrigido
 
 ### ✅ **Documentação**
+
 - [x] README principal atualizado
 - [x] Documentação completa em `/docs`
 - [x] Guias de deploy, setup, verificação
 - [x] README do frontend
 
 ### ✅ **Configuração Git**
+
 - [x] .gitignore configurado
 - [x] Arquivos sensíveis ignorados (.env)
 - [x] node_modules ignorados
@@ -32,6 +36,7 @@
 ## 🔒 Arquivos Sensíveis (NÃO commitar)
 
 Verifique que estes arquivos NÃO estão no git:
+
 - `.env` (raiz)
 - `.env.local`
 - `frontend/.env`
@@ -63,6 +68,7 @@ neoflw-token/
 ## 🚀 Próximos Passos
 
 ### **1. Verificar Git Status**
+
 ```bash
 git status
 ```
@@ -70,6 +76,7 @@ git status
 Certifique-se de que apenas arquivos necessários aparecem.
 
 ### **2. Criar Commit Inicial**
+
 ```bash
 git add .
 git commit -m "feat: Implementação completa NEOFLW Token
@@ -82,6 +89,7 @@ git commit -m "feat: Implementação completa NEOFLW Token
 ```
 
 ### **3. Push para Repositório**
+
 ```bash
 git remote add origin <URL_DO_REPO>
 git push -u origin main
@@ -102,6 +110,7 @@ git push -u origin main
 ## 📝 Arquivos Opcionais (Pode remover se quiser limpar)
 
 Estes arquivos podem ser removidos se quiser manter o repo mais limpo:
+
 - `AVATAR_IPFS_INFO.txt`
 - `CONSTRUCTOR_ARGS_CORRETO.txt`
 - `INSTRUCOES_CLAIM_SIMPLES.txt`

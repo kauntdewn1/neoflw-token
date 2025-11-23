@@ -43,6 +43,7 @@ ape accounts import neoflow-admin
 ```
 
 O comando vai pedir:
+
 1. Cole sua private key (`0x...`)
 2. Defina uma senha forte (você precisará dela para deploy)
 3. Confirme a senha

@@ -36,6 +36,7 @@ npm run dev
 Acessar: http://localhost:3000
 
 **O que fazer:**
+
 - Testar conexão de wallet
 - Verificar se os hooks funcionam
 - Testar interações básicas
@@ -77,6 +78,7 @@ ape run scripts/deploy_governor.py --network ethereum:sepolia
 ```
 
 **Requisitos:**
+
 - Token com ERC20Votes (NeoFlowTokenVotes)
 - TimelockController
 - Governor configurado
@@ -88,6 +90,7 @@ ape run scripts/deploy_governor.py --network ethereum:sepolia
 Quando estiver pronto para produção:
 
 **Pré-requisitos:**
+
 - [ ] ETH na mainnet (~0.1 ETH recomendado)
 - [ ] Backup da wallet
 - [ ] Testes completos em testnet
@@ -113,6 +116,7 @@ ape etherscan verify NeoFlowToken --network ethereum:mainnet
 ### **5. Melhorias Opcionais**
 
 #### **Frontend:**
+
 - [ ] Adicionar gráficos de staking
 - [ ] Dashboard de governança (se usar DAO)
 - [ ] Histórico de transações
@@ -120,11 +124,13 @@ ape etherscan verify NeoFlowToken --network ethereum:mainnet
 - [ ] Loading skeletons
 
 #### **Smart Contracts:**
+
 - [ ] Eventos adicionais para analytics
 - [ ] Pausa de emergência (se necessário)
 - [ ] Multi-signature para operações críticas
 
 #### **Infraestrutura:**
+
 - [ ] CI/CD para deploy automático
 - [ ] Monitoramento (The Graph, etc)
 - [ ] Documentação API
@@ -134,12 +140,14 @@ ape etherscan verify NeoFlowToken --network ethereum:mainnet
 ## 📋 Checklist Rápido
 
 ### **Para Desenvolvimento:**
+
 - [ ] Configurar frontend (`cd frontend && npm install`)
 - [ ] Testar frontend localmente
 - [ ] Verificar conexão com contratos Sepolia
 - [ ] Testar todas as funcionalidades
 
 ### **Para Produção:**
+
 - [ ] Obter ETH na mainnet
 - [ ] Fazer backup completo
 - [ ] Deploy na mainnet
@@ -161,6 +169,7 @@ npm run dev
 ```
 
 Depois disso, você pode:
+
 1. Testar todas as interações
 2. Ver o que funciona e o que precisa ajustar
 3. Decidir se precisa fazer novos deploys

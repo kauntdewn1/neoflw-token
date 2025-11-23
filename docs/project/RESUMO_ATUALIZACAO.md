@@ -5,14 +5,17 @@
 ### ✅ **O que foi adicionado desde o último commit:**
 
 #### **1. Smart Contracts Novos:**
+
 - ✅ `contracts/DaoGovernor.sol` - Sistema completo de governança DAO
 - ✅ `contracts/NeoFlowTokenVotes.sol` - Token com suporte a votação (ERC20Votes)
 
 #### **2. Otimizações:**
+
 - ✅ `contracts/StakingVault.sol` - Otimizado com tracking acumulado (`getTotalStaked()` agora O(1))
 - ✅ Novos testes em `tests/test_vault_total_staked.py` (4 testes adicionais)
 
 #### **3. Frontend Completo:**
+
 - ✅ Estrutura completa do WebApp (`frontend/`)
   - Next.js 15 + React 19 + Wagmi 2 + Viem 2
   - 3 hooks customizados: `useNeoflow`, `useStakingVault`, `useClaim`

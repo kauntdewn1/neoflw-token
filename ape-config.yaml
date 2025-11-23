@@ -28,4 +28,17 @@ networks:
           request_timeout: 60
     goerli:
       default_provider: alchemy
+  polygon:
+    mainnet:
+      default_provider: alchemy
+      providers:
+        alchemy:
+          api_key: ${ALCHEMY_API_KEY}
+          request_timeout: 60
+    mumbai:
+      default_provider: alchemy
+      providers:
+        alchemy:
+          api_key: ${ALCHEMY_API_KEY}
+          request_timeout: 60
 

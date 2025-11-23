@@ -91,6 +91,7 @@ Atualizar metadados em plataformas:
 Foram removidos **22 arquivos** duplicados ou obsoletos:
 
 ### **Verificação (duplicados):**
+
 - ❌ VERIFICAR_SIMPLES.md
 - ❌ VERIFICAR_COM_BYTECODE.md
 - ❌ VERIFICAR_E_ATUALIZAR_TOKEN.md
@@ -105,6 +106,7 @@ Foram removidos **22 arquivos** duplicados ou obsoletos:
 - ❌ CORRIGIR_BYTECODE_MISMATCH.md
 
 ### **Atualização Token (duplicados):**
+
 - ❌ ATUALIZAR_TOKEN_AUTOMATIZADO.md
 - ❌ ATUALIZAR_TOKEN_ETHERSCAN.md
 - ❌ COMO_ATUALIZAR_TOKEN_INFO.md
@@ -112,6 +114,7 @@ Foram removidos **22 arquivos** duplicados ou obsoletos:
 - ❌ PROBLEMA_LINK_GECKOTERMINAL.md
 
 ### **Outros:**
+
 - ❌ DEPLOY_COMPLETO.md
 - ❌ RESTORE_AFTER_REBOOT.md
 - ❌ RECUPERAR_PASSPHRASE.md
@@ -129,20 +132,24 @@ Foram removidos **22 arquivos** duplicados ou obsoletos:
 ## 🚀 Próximos Passos (Ordem de Execução)
 
 ### **1. Preparação** ⚠️
+
 - [ ] Obter ETH real (~0.1 ETH)
 - [ ] Verificar wallet `neoflow-admin` tem ETH
 - [ ] Backup da wallet
 
 ### **2. Deploy** 🚀
+
 - [ ] Compilar contratos: `npm run compile`
 - [ ] Deploy na mainnet: `ape run scripts/deploy_token.py --network ethereum:mainnet`
 - [ ] Anotar endereço do contrato
 
 ### **3. Verificação** ✅
+
 - [ ] Verificar no Sourcify: https://sourcify.dev/
 - [ ] Verificar no Etherscan: https://etherscan.io/address/[ENDERECO]
 
 ### **4. Atualização** 📝
+
 - [ ] Atualizar metadados no Etherscan
 - [ ] Adicionar no GeckoTerminal
 - [ ] Adicionar no CoinGecko
@@ -155,6 +162,7 @@ Foram removidos **22 arquivos** duplicados ou obsoletos:
 **👉 Leia primeiro:** [`docs/migration/MIGRACAO_MAINNET.md`](./docs/migration/MIGRACAO_MAINNET.md)
 
 Este guia contém:
+
 - ✅ Checklist completo
 - ✅ Passo a passo detalhado
 - ✅ Custos estimados
@@ -166,6 +174,7 @@ Este guia contém:
 ## 📍 Informações Importantes
 
 ### **Token Atual (Sepolia):**
+
 ```
 Endereço: 0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87
 Rede: Sepolia Testnet
@@ -173,6 +182,7 @@ Status: ✅ Verificado no Sourcify
 ```
 
 ### **Token Futuro (Mainnet):**
+
 ```
 Endereço: [A SER DEFINIDO APÓS DEPLOY]
 Rede: Ethereum Mainnet

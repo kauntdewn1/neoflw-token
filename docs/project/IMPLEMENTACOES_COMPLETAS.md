@@ -9,10 +9,12 @@ Este documento resume todas as implementações realizadas para o protocolo NEOF
 ## 1. ✅ Otimização do StakingVault
 
 ### **Problema Original:**
+
 - `getTotalStaked()` retornava `0` (implementação simplificada)
 - `emergencyWithdraw` não funcionava corretamente por falta de tracking
 
 ### **Solução Implementada:**
+
 - Adicionado tracking acumulado com variáveis:
   - `totalStakedAmount`: Total de tokens em stakes ativos
   - `totalRewardsReserved`: Total de rewards reservados
@@ -20,9 +22,11 @@ Este documento resume todas as implementações realizadas para o protocolo NEOF
 - Tracking é atualizado automaticamente em `stake()` e `claim()`
 
 ### **Arquivos Modificados:**
+
 - `contracts/StakingVault.sol`
 
 ### **Testes:**
+
 - ✅ Todos os 30 testes existentes continuam passando
 - ✅ Novo arquivo `tests/test_vault_total_staked.py` com 4 testes específicos
 
@@ -33,6 +37,7 @@ Este documento resume todas as implementações realizadas para o protocolo NEOF
 ### **Contratos Criados:**
 
 #### **2.1. DaoGovernor.sol**
+
 - Contrato completo de governança usando OpenZeppelin Governor
 - Features:
   - Voting delay e period configuráveis
@@ -42,18 +47,22 @@ Este documento resume todas as implementações realizadas para o protocolo NEOF
   - Snapshot-based voting
 
 #### **2.2. NeoFlowTokenVotes.sol**
+
 - Versão do token com suporte a votação (ERC20Votes)
 - Herda de `ERC20Votes` para permitir snapshot-based voting
 - Mantém funcionalidade de burn
 
 #### **2.3. TimelockController**
+
 - Usado via OpenZeppelin (não precisa deploy separado)
 - Integrado com Governor para execução segura de propostas
 
 ### **Scripts Criados:**
+
 - `scripts/deploy_governor.py` - Script completo de deploy
 
 ### **Parâmetros Padrão:**
+
 ```solidity
 VOTING_DELAY = 1 bloco
 VOTING_PERIOD = 50400 blocos (~7 dias)
@@ -67,6 +76,7 @@ TIMELOCK_DELAY = 1 dia (86400 segundos)
 ## 3. ✅ Frontend/WebApp Completo
 
 ### **Tecnologias:**
+
 - **Next.js 14** (App Router)
 - **Wagmi 2.0** (React hooks para Ethereum)
 - **Viem 2.0** (Cliente Ethereum)
@@ -104,6 +114,7 @@ frontend/
 ### **Funcionalidades Implementadas:**
 
 #### **3.1. Token Integration (`useNeoflow`)**
+
 - ✅ Ler balance do usuário
 - ✅ Ler total supply
 - ✅ Queimar tokens (burn)
@@ -111,6 +122,7 @@ frontend/
 - ✅ Success feedback
 
 #### **3.2. Staking Integration (`useStakingVault`)**
+
 - ✅ Ler informações do stake
 - ✅ Ver tempo restante
 - ✅ Ler total staked
@@ -120,6 +132,7 @@ frontend/
 - ✅ Feedback visual completo
 
 #### **3.3. Claim Integration (`useClaim`)**
+
 - ✅ Verificar elegibilidade
 - ✅ Ler amount disponível
 - ✅ Verificar se já fez claim
@@ -127,6 +140,7 @@ frontend/
 - ✅ Mostrar saldo do contrato
 
 ### **UI/UX:**
+
 - ✅ Design moderno com gradiente
 - ✅ Cards responsivos
 - ✅ Loading states
@@ -139,16 +153,19 @@ frontend/
 ## 📦 Como Usar
 
 ### **1. Compilar Contratos:**
+
 ```bash
 npm run compile
 ```
 
 ### **2. Executar Testes:**
+
 ```bash
 npm run test
 ```
 
 ### **3. Deploy na Testnet/Mainnet:**
+
 ```bash
 # Token
 npm run deploy:token
@@ -164,6 +181,7 @@ ape run scripts/deploy_governor.py --network ethereum:sepolia
 ```
 
 ### **4. Frontend:**
+
 ```bash
 cd frontend
 npm install

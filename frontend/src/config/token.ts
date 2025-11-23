@@ -1,21 +1,33 @@
 // src/config/token.ts
 export const TOKEN_CONFIG = {
-  // Sepolia Testnet
-  address: process.env.NEXT_PUBLIC_TOKEN_ADDRESS || "0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87",
+  // Polygon Mainnet (ou Mumbai testnet durante desenvolvimento)
+  address: process.env.NEXT_PUBLIC_TOKEN_ADDRESS || "",
   name: "NeoFlowOFF",
   symbol: "NEOFLW",
   decimals: 18,
   
-  // Network
+  // Network - POLYGON MAINNET
   network: {
-    name: "Sepolia",
-    chainId: 11155111,
+    name: "Polygon",
+    chainId: 137, // Polygon mainnet (80001 para Mumbai testnet)
     rpcUrls: [
-      "https://rpc.sepolia.org",
-      "https://rpc.sepolia.online",
+      process.env.NEXT_PUBLIC_ALCHEMY_API_KEY
+        ? `https://polygon-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_API_KEY}`
+        : "https://polygon-rpc.com",
+      "https://rpc.ankr.com/polygon",
+      "https://polygon-rpc.com",
     ],
-    explorer: "https://sepolia.etherscan.io",
+    explorer: "https://polygonscan.com",
+    nativeCurrency: {
+      name: "MATIC",
+      symbol: "MATIC",
+      decimals: 18,
+    },
   },
+  
+  // Para desenvolvimento/testnet, usar Mumbai:
+  // chainId: 80001,
+  // explorer: "https://mumbai.polygonscan.com",
   
   // Logo e Metadados
   logo: {

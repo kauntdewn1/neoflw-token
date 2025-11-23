@@ -5,8 +5,9 @@ pragma solidity ^0.8.18;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
 
-contract StakingVault is Ownable, ReentrancyGuard {
+contract StakingVault is Ownable, ReentrancyGuard, Pausable {
     IERC20 public token;
     
     uint256 public constant LOCK_DURATION = 180 days; // 6 meses
@@ -28,13 +29,14 @@ contract StakingVault is Ownable, ReentrancyGuard {
     event Claimed(address indexed user, uint256 amount, uint256 reward, uint256 total);
     event RewardsDeposited(address indexed owner, uint256 amount);
     event EmergencyWithdrawn(address indexed owner, uint256 amount);
+    // Paused e Unpaused eventos já vêm do Pausable do OpenZeppelin
     
     constructor(address _token) {
         require(_token != address(0), "Invalid token address");
         token = IERC20(_token);
     }
     
-    function stake(uint256 _amount) external nonReentrant {
+    function stake(uint256 _amount) external nonReentrant whenNotPaused {
         require(_amount > 0, "Amount must be greater than 0");
         require(stakes[msg.sender].amount == 0, "Already staking");
         require(
@@ -57,7 +59,7 @@ contract StakingVault is Ownable, ReentrancyGuard {
         emit Staked(msg.sender, _amount);
     }
     
-    function claim() external nonReentrant {
+    function claim() external nonReentrant whenNotPaused {
         StakeInfo storage userStake = stakes[msg.sender];
         require(userStake.amount > 0, "No stake found");
         require(!userStake.claimed, "Already claimed");
@@ -69,12 +71,20 @@ contract StakingVault is Ownable, ReentrancyGuard {
         uint256 reward = (userStake.amount * REWARD_RATE) / 100;
         uint256 total = userStake.amount + reward;
         
-        // ✅ VALIDAÇÃO CRÍTICA DE SEGURANÇA: Verificar saldo ANTES de marcar como claimed
-        // Esta validação previne DoS e garante que o vault tem saldo suficiente
-        // Ordem CEI: Checks (validações) → Effects (mudança de estado) → Interactions (transfer)
+        // ✅ CORREÇÃO CRÍTICA: Verificar saldo TOTAL comprometido (não apenas do usuário)
+        // Isso previne que claims falhem se owner não depositou rewards suficientes
+        uint256 totalCommitted = getTotalStaked();
+        uint256 currentBalance = token.balanceOf(address(this));
+        
         require(
-            token.balanceOf(address(this)) >= total,
-            "Vault: Saldo insuficiente para rewards"
+            currentBalance >= totalCommitted,
+            "Vault: Saldo insuficiente para todos os claims pendentes"
+        );
+        
+        // Validação adicional: garantir que este claim específico pode ser atendido
+        require(
+            currentBalance >= total,
+            "Vault: Saldo insuficiente para este claim"
         );
         
         // Effects: Marcar como claimed ANTES da transferência (proteção CEI)
@@ -85,10 +95,8 @@ contract StakingVault is Ownable, ReentrancyGuard {
         totalRewardsReserved -= reward;
         
         // Interactions: Transferência após todas as validações e mudanças de estado
-        require(
-            token.transfer(msg.sender, total),
-            "Transfer failed"
-        );
+        bool success = token.transfer(msg.sender, total);
+        require(success, "Transfer failed");
         
         emit Claimed(msg.sender, userStake.amount, reward, total);
     }
@@ -156,6 +164,20 @@ contract StakingVault is Ownable, ReentrancyGuard {
         );
         
         emit EmergencyWithdrawn(msg.sender, _amount);
+    }
+    
+    /**
+     * @dev Pausa o contrato em caso de emergência
+     */
+    function pause() external onlyOwner {
+        _pause();
+    }
+    
+    /**
+     * @dev Despausa o contrato
+     */
+    function unpause() external onlyOwner {
+        _unpause();
     }
 }
 
