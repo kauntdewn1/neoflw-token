@@ -6,13 +6,17 @@ Este repositório contém toda a documentação do projeto NEOFLW Token, organiz
 
 ---
 
-## 🚀 **PRÓXIMOS PASSOS: MIGRAÇÃO PARA MAINNET**
+## 🚀 **PRÓXIMOS PASSOS: CONFIGURAÇÃO COMPLETA DO TOKEN**
 
-### ⭐ **DESTAQUE: Pronto para Migração!**
+### ⭐ **DESTAQUE: Guia Completo de Configuração!**
 
-O token está **verificado e funcionando** em Sepolia Testnet. Agora é hora de migrar para Ethereum Mainnet.
+**📖 Guia Completo de Configuração:** [`CONFIGURACAO_COMPLETA_TOKEN.md`](./CONFIGURACAO_COMPLETA_TOKEN.md) ⭐ **NOVO!**
 
-**📖 Guia Completo:** [`docs/migration/MIGRACAO_MAINNET.md`](./migration/MIGRACAO_MAINNET.md)
+**⚡ Resumo Rápido:** [`RESUMO_CONFIGURACAO.md`](./RESUMO_CONFIGURACAO.md) ⭐ **NOVO!**
+
+O token está **verificado e funcionando** em Sepolia Testnet. Agora é hora de migrar para **Polygon Mainnet**.
+
+**📖 Guia de Migração Polygon:** [`docs/deploy/MIGRACAO_POLYGON.md`](./deploy/MIGRACAO_POLYGON.md)
 
 ### **Checklist Rápido:**
 
@@ -329,6 +333,8 @@ ape run scripts/deploy_token.py --network ethereum:mainnet
 
 ### **Documentos Principais:**
 
+- **🎯 Configuração Completa:** [`CONFIGURACAO_COMPLETA_TOKEN.md`](./CONFIGURACAO_COMPLETA_TOKEN.md) ⭐⭐ **NOVO!** - Guia definitivo passo a passo
+- **⚡ Resumo Rápido:** [`RESUMO_CONFIGURACAO.md`](./RESUMO_CONFIGURACAO.md) ⭐ **NOVO!** - Checklist rápido
 - **Smart Contracts:** [`docs/contracts/DOCUMENTACAO_COMPLETA_CONTRATOS.md`](./contracts/DOCUMENTACAO_COMPLETA_CONTRATOS.md) ⭐ - Análise completa de segurança e funcionalidades
 - **Implementações:** [`docs/project/IMPLEMENTACOES_COMPLETAS.md`](./project/IMPLEMENTACOES_COMPLETAS.md) - Detalhes técnicos completos
 - **Próximos Passos:** [`docs/project/PROXIMOS_PASSOS.md`](./project/PROXIMOS_PASSOS.md) - Guia de próximas ações
@@ -337,7 +343,7 @@ ape run scripts/deploy_token.py --network ethereum:mainnet
 
 ### **Links Rápidos:**
 
-- **Migração Mainnet:** [`docs/migration/MIGRACAO_MAINNET.md`](./migration/MIGRACAO_MAINNET.md) ⭐
+- **Migração Polygon:** [`docs/deploy/MIGRACAO_POLYGON.md`](./deploy/MIGRACAO_POLYGON.md) ⭐
 - **Setup:** [`docs/setup/`](./setup/) - Configuração inicial
 - **Deploy:** [`docs/deploy/`](./deploy/) - Guias de deploy
 - **Verificação:** [`docs/verification/`](./verification/) - Verificar contratos

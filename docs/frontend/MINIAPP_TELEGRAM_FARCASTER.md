@@ -9,6 +9,7 @@ O DApp NEOFLW será deployado como **MiniApp** no Telegram e **Frame** no Farcas
 ## 📊 Por Que MiniApp?
 
 ### **Telegram Mini Apps (TMA)**
+
 - ✅ **1B+ usuários** no Telegram
 - ✅ **Acesso nativo** dentro do app
 - ✅ **TON Wallet** integrado
@@ -16,6 +17,7 @@ O DApp NEOFLW será deployado como **MiniApp** no Telegram e **Frame** no Farcas
 - ✅ **Viralização** fácil (compartilhar links)
 
 ### **Farcaster Frames**
+
 - ✅ **Comunidade Web3 nativa**
 - ✅ **On-chain social** (verificável)
 - ✅ **Frames** = apps dentro de posts
@@ -192,6 +194,7 @@ export function useFarcaster() {
 #### **2.1. Thirdweb (Recomendado para MiniApps)**
 
 **Por que Thirdweb:**
+
 - ✅ Suporte nativo para Telegram
 - ✅ Embed wallet (sem necessidade de extensão)
 - ✅ Social login (Google, Twitter, etc)
@@ -205,6 +208,7 @@ npm install @thirdweb-dev/react @thirdweb-dev/sdk
 ```
 
 **Configuração:**
+
 ```typescript
 // src/app/providers.tsx
 'use client';

@@ -59,8 +59,8 @@ export function useNeoflow() {
 
   return {
     // Dados
-    balance: balance ? formatUnits(balance, 18) : '0',
-    totalSupply: totalSupply ? formatUnits(totalSupply, 18) : '0',
+    balance: balance && typeof balance === 'bigint' ? formatUnits(balance, 18) : '0',
+    totalSupply: totalSupply && typeof totalSupply === 'bigint' ? formatUnits(totalSupply, 18) : '0',
     
     // Estados
     balanceLoading,

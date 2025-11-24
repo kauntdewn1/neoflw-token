@@ -13,6 +13,7 @@ Sistema completo de gamificação implementado e integrado com a migração para
 ✅ **Criado:** `contracts/GamificationController.sol`
 
 #### **Funcionalidades:**
+
 - ✅ **Quests System**: 6 quests padrão configuradas
 - ✅ **XP & Levels**: Sistema de experiência (5000 XP por nível)
 - ✅ **Achievements**: 4 achievements com raridades (rare, epic, legendary)
@@ -23,6 +24,7 @@ Sistema completo de gamificação implementado e integrado com a migração para
 - ✅ **Validações de Saldo**: Verifica saldo antes de transferir rewards
 
 #### **Quests Padrão:**
+
 | ID | Nome | XP | Reward | Categoria |
 |----|------|----|--------|-----------|
 | 1 | First Stake | 500 | 100 NEOFLW | staking |
@@ -33,6 +35,7 @@ Sistema completo de gamificação implementado e integrado com a migração para
 | 6 | DAO Voter | 300 | 100 NEOFLW | governance |
 
 #### **Achievements:**
+
 1. **Early Adopter** 🚀 (rare) - Primeiro quest completado
 2. **Staking Champion** 🏆 (epic) - 2+ quests de staking
 3. **Level Master** ⭐ (epic) - Nível 10+
@@ -54,11 +57,13 @@ ape run deploy_gamification --network polygon:mainnet
 ### **3. Documentação Atualizada**
 
 ✅ **Atualizado:** `docs/contracts/migr_mainnet_polygon.md`
+
 - Adicionada seção de Gamificação
 - Custos de deploy atualizados
 - Checklist atualizado
 
 ✅ **Atualizado:** `docs/deploy/MIGRACAO_POLYGON.md`
+
 - Incluído deploy do GamificationController
 - Passos de configuração atualizados
 
@@ -76,6 +81,7 @@ ape run deploy_gamification --network polygon:mainnet
 | `depositRewards()` (owner) | ~50k-100k | $0.001-0.01 | $1-8 | **1,000x** |
 
 ### **Deploy:**
+
 - **GamificationController**: $0.15-1.00 (vs $40-200 Ethereum)
 - **Economia**: $39-199 🎉
 

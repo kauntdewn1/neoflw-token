@@ -212,6 +212,7 @@ function emergencyWithdraw(uint256 _amount) external onlyOwner
 ### 🔒 Análise de Segurança
 
 #### ✅ **Pontos Fortes:**
+
 1. **ReentrancyGuard** - Proteção contra reentrância
 2. **CEI Pattern** - Ordem correta de operações
 3. **Validação de saldo** - Verifica saldo antes de claim

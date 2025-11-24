@@ -125,8 +125,8 @@ export function useStakingVault() {
       claimed: stakeInfo[2],
     } : null,
     timeLeft: timeLeftQuery.data ? Number(timeLeftQuery.data) : 0,
-    totalStaked: totalStakedQuery.data ? formatUnits(totalStakedQuery.data, 18) : '0',
-    balance: approvalQuery.data ? formatUnits(approvalQuery.data, 18) : '0',
+    totalStaked: totalStakedQuery.data && typeof totalStakedQuery.data === 'bigint' ? formatUnits(totalStakedQuery.data, 18) : '0',
+    balance: approvalQuery.data && typeof approvalQuery.data === 'bigint' ? formatUnits(approvalQuery.data, 18) : '0',
     
     // Estados
     isLoading: stakeInfoQuery.isLoading || timeLeftQuery.isLoading,

@@ -24,15 +24,18 @@
   - Erro de hidratação corrigido
 
 #### **4. Scripts Novos:**
+
 - ✅ `scripts/deploy_governor.py` - Deploy automatizado do DAO Governance
 
 #### **5. Documentação:**
+
 - ✅ `IMPLEMENTACOES_COMPLETAS.md` - Resumo de todas as implementações
 - ✅ `PROXIMOS_PASSOS.md` - Guia de próximos passos
 - ✅ `CHECKLIST_REPOSITORIO.md` - Checklist para preparação
 - ✅ `frontend/README.md` - Documentação do frontend
 
 #### **6. Configurações:**
+
 - ✅ `.gitignore` atualizado (frontend, arquivos temporários)
 - ✅ `package.json` atualizado (dependências mais recentes)
 

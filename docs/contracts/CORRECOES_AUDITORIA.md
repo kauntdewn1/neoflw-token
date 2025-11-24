@@ -159,6 +159,7 @@ contract NeoFlowClaim is Ownable, Pausable {
 ```
 
 ### **Benefícios:**
+
 - ✅ Pode pausar em caso de exploit
 - ✅ Protege usuários de operações maliciosas
 - ✅ Permite correções sem perda de fundos
@@ -168,9 +169,11 @@ contract NeoFlowClaim is Ownable, Pausable {
 ## 🟠 CRÍTICO #4: Validação Melhorada em claimTokens() ✅ CORRIGIDO
 
 ### **Problema Original:**
+
 `claimTokens()` não validava saldo antes de marcar como claimed.
 
 ### **Correção Aplicada:**
+
 ```solidity
 function claimTokens() external whenNotPaused {
     uint256 amountToClaim = claimableAmount[msg.sender];
@@ -266,14 +269,18 @@ function claimTokens() external whenNotPaused {
 ## ⚠️ Timelock - NÃO IMPLEMENTADO (Opcional)
 
 ### **Status:**
+
 Timelock para operações administrativas foi identificado como recomendação, mas **não é crítico** para segurança básica.
 
 ### **Recomendação:**
+
 - Para produção inicial: **Não necessário** (Pausable é suficiente)
 - Para produção avançada: **Recomendado** (transparência e confiança)
 
 ### **Implementação Futura (se necessário):**
+
 Pode ser adicionado via:
+
 1. Contrato separado de Timelock
 2. Ou integração com OpenZeppelin TimelockController
 
@@ -282,6 +289,7 @@ Pode ser adicionado via:
 ## ✅ Checklist de Validação
 
 ### **Testes Necessários:**
+
 - [ ] Testar `claim()` com saldo insuficiente (deve falhar)
 - [ ] Testar `emergencyWithdraw()` com tokens comprometidos (deve falhar)
 - [ ] Testar `pause()` e `unpause()`

@@ -63,9 +63,9 @@ export function useClaim() {
 
   return {
     // Dados
-    claimableAmount: claimableQuery.data ? formatUnits(claimableQuery.data, 18) : '0',
+    claimableAmount: claimableQuery.data && typeof claimableQuery.data === 'bigint' ? formatUnits(claimableQuery.data, 18) : '0',
     hasClaimed: hasClaimedQuery.data || false,
-    contractBalance: contractBalanceQuery.data ? formatUnits(contractBalanceQuery.data, 18) : '0',
+    contractBalance: contractBalanceQuery.data && typeof contractBalanceQuery.data === 'bigint' ? formatUnits(contractBalanceQuery.data, 18) : '0',
     
     // Estados
     isLoading: claimableQuery.isLoading || hasClaimedQuery.isLoading,

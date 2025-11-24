@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { isTelegramWebApp, getTelegramUser, getTelegramTheme, initTelegramWebApp } from '../utils/miniapp';
 
 export function useTelegram() {
-  const [webApp, setWebApp] = useState<Window['Telegram']['WebApp'] | null>(null);
+  const [webApp, setWebApp] = useState<any>(null);
   const [user, setUser] = useState<any>(null);
   const [theme, setTheme] = useState<any>(null);
   const [isReady, setIsReady] = useState(false);

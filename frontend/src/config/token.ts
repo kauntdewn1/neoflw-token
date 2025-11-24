@@ -19,8 +19,8 @@ export const TOKEN_CONFIG = {
     ],
     explorer: "https://polygonscan.com",
     nativeCurrency: {
-      name: "MATIC",
-      symbol: "MATIC",
+      name: "POL", // POL (Polygon) - MATIC foi migrado para POL em set/2024
+      symbol: "POL",
       decimals: 18,
     },
   },
