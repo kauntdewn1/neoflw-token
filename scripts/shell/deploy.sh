@@ -7,12 +7,13 @@ echo "🚀 Deploy do Token $NEOFLW"
 echo "============================"
 echo ""
 
-# Carregar variáveis do .env.local
-if [ -f .env.local ]; then
-    export $(grep -v '^#' .env.local | xargs)
-    echo "✅ Variáveis carregadas do .env.local"
+# Carregar variáveis do .env
+if [ -f .env ]; then
+    export $(grep -v '^#' .env | grep -v '^$' | xargs)
+    echo "✅ Variáveis carregadas do .env"
 else
-    echo "❌ Arquivo .env.local não encontrado!"
+    echo "❌ Arquivo .env não encontrado!"
+    echo "   Crie um arquivo .env baseado em .env.example"
     exit 1
 fi
 
@@ -46,15 +47,17 @@ echo "✅ Contratos compilados"
 echo ""
 
 # Deploy do token
-echo "🚀 Fazendo deploy do token em Sepolia..."
+# Usar network do .env ou padrão
+NETWORK=${APE_NETWORK:-polygon:mainnet}
+echo "🚀 Fazendo deploy do token em $NETWORK..."
 echo ""
-ape run deploy_token --network ethereum:sepolia
+ape run scripts/deploy/deploy_token --network $NETWORK
 
 echo ""
 echo "✅ Deploy concluído!"
 echo ""
 echo "📋 PRÓXIMO PASSO:"
 echo "1. Copie o endereço do token acima"
-echo "2. Edite scripts/deploy_vault.py e cole o endereço"
-echo "3. Execute: npm run deploy:vault"
+echo "2. Atualize frontend/.env com o endereço"
+echo "3. Execute: make deploy-vault"
 
