@@ -6,7 +6,9 @@ import { WagmiProvider } from 'wagmi';
 import { createConfig, http } from 'wagmi';
 import { polygon, polygonMumbai } from 'wagmi/chains';
 import { injected, metaMask, walletConnect } from 'wagmi/connectors';
+import { ThirdwebProvider } from '@thirdweb-dev/react';
 import { TOKEN_CONFIG } from '../config/token';
+import { THIRDWEB_CONFIG, isThirdwebConfigured } from '../config/thirdweb';
 
 const queryClient = new QueryClient();
 
@@ -36,6 +38,23 @@ const config = createConfig({
 });
 
 export function Providers({ children }: { children: React.ReactNode }) {
+  // Se Thirdweb estiver configurado, usar como provider principal
+  if (isThirdwebConfigured()) {
+    return (
+      <ThirdwebProvider
+        clientId={THIRDWEB_CONFIG.clientId}
+        activeChain={isDevelopment ? polygonMumbai : polygon}
+      >
+        <WagmiProvider config={config}>
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </WagmiProvider>
+      </ThirdwebProvider>
+    );
+  }
+
+  // Fallback para apenas Wagmi se Thirdweb não estiver configurado
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
