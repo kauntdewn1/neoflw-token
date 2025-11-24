@@ -20,14 +20,15 @@ networks:
         alchemy:
           api_key: ${ALCHEMY_API_KEY}
           request_timeout: 60
-    sepolia:
-      default_provider: alchemy
-      providers:
-        alchemy:
-          api_key: ${ALCHEMY_API_KEY}
-          request_timeout: 60
-    goerli:
-      default_provider: alchemy
+    # Sepolia e Goerli removidos - foco em Polygon Mainnet
+    # sepolia:
+    #   default_provider: alchemy
+    #   providers:
+    #     alchemy:
+    #       api_key: ${ALCHEMY_API_KEY}
+    #       request_timeout: 60
+    # goerli:
+    #   default_provider: alchemy
   polygon:
     mainnet:
       default_provider: alchemy

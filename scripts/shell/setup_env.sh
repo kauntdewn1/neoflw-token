@@ -19,7 +19,7 @@ fi
 
 # Ape Framework também precisa dessas variáveis WEB3
 export WEB3_ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
-export WEB3_ETHEREUM_SEPOLIA_ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
+export WEB3_POLYGON_MAINNET_ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
 
 echo "✅ Variáveis de ambiente exportadas!"
 echo "   ALCHEMY_API_KEY: ${ALCHEMY_API_KEY:0:10}..."

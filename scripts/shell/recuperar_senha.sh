@@ -91,7 +91,7 @@ case $OPCAO in
         echo ""
         echo "⚠️  ATENÇÃO:"
         echo "  - A conta atual será removida"
-        echo "  - Você precisará transferir Sepolia ETH para a nova conta"
+        echo "  - Você precisará transferir POL (Polygon) para a nova conta"
         echo "  - OU solicitar novo ETH no faucet"
         echo ""
         read -p "Continuar? (s/n): " CONTINUAR

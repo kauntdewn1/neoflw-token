@@ -14,7 +14,7 @@ Este repositório contém toda a documentação do projeto NEOFLW Token, organiz
 
 **⚡ Resumo Rápido:** [`RESUMO_CONFIGURACAO.md`](./RESUMO_CONFIGURACAO.md) ⭐ **NOVO!**
 
-O token está **verificado e funcionando** em Sepolia Testnet. Agora é hora de migrar para **Polygon Mainnet**.
+O projeto está configurado para **Polygon Mainnet**. Pronto para deploy dos contratos.
 
 **📖 Guia de Migração Polygon:** [`docs/deploy/MIGRACAO_POLYGON.md`](./deploy/MIGRACAO_POLYGON.md)
 
@@ -272,10 +272,10 @@ npm run compile      # Compilar contratos
 npm run test         # Executar testes
 ```
 
-### **Deploy (Sepolia):**
+### **Deploy (Polygon Mainnet):**
 
 ```bash
-ape run scripts/deploy_token.py --network ethereum:sepolia
+ape run scripts/deploy/deploy_token --network polygon:mainnet
 ```
 
 ### **Deploy (Mainnet):**

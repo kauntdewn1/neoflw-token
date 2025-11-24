@@ -4,7 +4,7 @@
 .PHONY: help install compile test clean deploy-token deploy-vault deploy-claim verify-token verify-vault verify-claim setup-claim test-claim test-token test-vault
 
 # Variáveis
-NETWORK ?= ethereum:sepolia
+NETWORK ?= polygon:mainnet
 ACCOUNT ?= neoflow-admin
 
 help: ## Mostra esta mensagem de ajuda
@@ -67,17 +67,16 @@ verify-claim: ## Verifica claim no Etherscan
 	@echo "✅ Verificando claim no Etherscan..."
 	ape etherscan verify NeoFlowClaim --network $(NETWORK)
 
-# Verificação no Blockscout (Manual via interface web)
-verify-blockscout: ## Instruções para verificar no Blockscout
-	@echo "📋 Para verificar no Blockscout:"
-	@echo "   1. Acesse: https://eth-sepolia.blockscout.com/address/0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87"
+# Verificação no Polygonscan (Manual via interface web)
+verify-polygonscan: ## Instruções para verificar no Polygonscan
+	@echo "📋 Para verificar no Polygonscan:"
+	@echo "   1. Acesse: https://polygonscan.com/address/[ENDERECO_CONTRATO]"
 	@echo "   2. Vá para aba 'Contract'"
-	@echo "   3. Clique em 'Verify & publish'"
+	@echo "   3. Clique em 'Verify and Publish'"
 	@echo "   4. Use Standard JSON Input de: sourcify_standard_json.json"
 	@echo "      ⚠️ IMPORTANTE: Use sourcify_standard_json.json (tem campo 'language')"
-	@echo "      ❌ NÃO use etherscan_verification_fixed.json (formato Ape, sem 'language')"
 	@echo ""
-	@echo "📖 Guia completo: docs/verification/VERIFICAR_BLOCKSCOUT.md"
+	@echo "📖 Guia completo: docs/verification/VERIFICAR_POLYGONSCAN.md"
 
 # Corrigir JSON para Blockscout (se necessário)
 fix-blockscout-json: ## Corrige JSON para formato Blockscout

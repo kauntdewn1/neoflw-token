@@ -15,13 +15,9 @@
 
 #### **Deploy Status:**
 
-- ✅ **Sepolia Testnet (Ethereum):**
+- ⏳ **Polygon Mainnet:** Ainda não deployado (próximo passo)
 
-  - Token: `0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87` ✅ Verificado
-  - StakingVault: `0x7A3109a7A978473142c655C3DBbfad4e5Bc37aeD`
-  - NeoFlowClaim: `0xEE96C0813e84bb7Ea162b1594b8Bff61dB79A7Ca`
-
-- ⏳ **Polygon Mainnet:** Ainda não deployado
+**Nota:** Contratos anteriores em Sepolia Testnet foram removidos das referências do projeto para evitar confusão. Foco agora é 100% em Polygon Mainnet.
 
 #### **Frontend (100% Completo):**
 
