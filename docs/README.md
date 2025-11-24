@@ -198,18 +198,11 @@ Documentação geral e resumos do projeto:
 
 ## 🔗 Links Úteis
 
-### **Sepolia Testnet (Atual):**
+### **Polygon Mainnet (Atual):**
 
-#### **Token:**
-- **Etherscan:** https://sepolia.etherscan.io/token/0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87
-- **Contrato:** https://sepolia.etherscan.io/address/0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87
-- **Sourcify:** https://repo.sourcify.dev/11155111/0x5AaCebca3f0CD9283401a83bC7BA5db48011CE87
-
-#### **StakingVault:**
-- **Etherscan:** https://sepolia.etherscan.io/address/0x7A3109a7A978473142c655C3DBbfad4e5Bc37aeD
-
-#### **NeoFlowClaim:**
-- **Etherscan:** https://sepolia.etherscan.io/address/0xEE96C0813e84bb7Ea162b1594b8Bff61dB79A7Ca
+- ⏳ **Aguardando deploy**
+- 📋 Endereços serão atualizados após deploy
+- 🔗 **Polygonscan:** https://polygonscan.com
 
 ### **Mainnet (Após Migração):**
 
