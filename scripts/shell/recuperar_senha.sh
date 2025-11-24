@@ -35,7 +35,7 @@ case $OPCAO in
         echo "  Enter passphrase: [digite sua senha]"
         echo ""
         echo "Execute:"
-        echo "  source setup_env.sh"
+        echo "  source scripts/shell/setup_env.sh"
         echo "  make deploy-token"
         echo ""
         ;;
@@ -127,8 +127,8 @@ case $OPCAO in
             echo ""
             echo "📋 Próximos passos:"
             echo "  1. Verifique o novo endereço: ape accounts list"
-            echo "  2. Obtenha Sepolia ETH: https://www.alchemy.com/faucets/ethereum-sepolia"
-            echo "  3. Depois execute: source setup_env.sh && make deploy-token"
+            echo "  2. Obtenha POL para Polygon: https://polygon.technology/polygon-faucet"
+            echo "  3. Depois execute: source scripts/shell/setup_env.sh && make deploy-token"
         else
             echo "Operação cancelada"
         fi
