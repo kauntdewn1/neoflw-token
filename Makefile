@@ -44,15 +44,15 @@ clean: ## Limpa build e cache
 # Deploy de Contratos
 deploy-token: ## Deploy do token NeoFlowToken
 	@echo "🚀 Deploying NeoFlowToken..."
-	ape run deploy_token --network $(NETWORK)
+	ape run scripts/deploy/deploy_token --network $(NETWORK)
 
 deploy-vault: ## Deploy do vault StakingVault
 	@echo "🚀 Deploying StakingVault..."
-	ape run deploy_vault --network $(NETWORK)
+	ape run scripts/deploy/deploy_vault --network $(NETWORK)
 
 deploy-claim: ## Deploy do contrato NeoFlowClaim
 	@echo "🚀 Deploying NeoFlowClaim..."
-	ape run deploy_claim --network $(NETWORK)
+	ape run scripts/deploy/deploy_claim --network $(NETWORK)
 
 # Verificação no Etherscan
 verify-token: ## Verifica token no Etherscan

@@ -48,9 +48,17 @@ yarn-error.log*
 # Arquivos temporários
 *.tmp
 *.temp
+
+# Arquivos de endereços (movidos para artifacts/addresses/)
 .claim_address.txt
 .vault_address.txt
 .token_address.txt
 .governor_address.txt
 .timelock_address.txt
+artifacts/addresses/*.txt
+
+# Artifacts de build e verificação
+artifacts/flattened/*.sol
+artifacts/verification/*.json
+__local__.json
 
