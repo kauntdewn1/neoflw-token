@@ -1,5 +1,5 @@
 # scripts/deploy_vault.py
-from ape import accounts, project
+from ape import accounts, project, networks
 import os
 import sys
 
@@ -31,6 +31,9 @@ def main():
     
     print(f"🔗 Token address: {token_address}")
     print("📦 Deploying StakingVault...")
+    if networks.active_provider:
+        print(f"🌐 Provider: {networks.active_provider.name}")
+    print("")
     
     vault = project.StakingVault.deploy(token_address, sender=acct, auto_confirm=True)
     
@@ -40,8 +43,8 @@ def main():
     print(f"🔗 Token address: {token_address}")
     print("=" * 60)
     print("")
-    print(f"🔗 Ver no Etherscan:")
-    print(f"   https://sepolia.etherscan.io/address/{vault.address}")
+    print(f"🔗 Ver no Polygonscan:")
+    print(f"   https://polygonscan.com/address/{vault.address}")
     print("")
     
     # Salvar endereço do vault

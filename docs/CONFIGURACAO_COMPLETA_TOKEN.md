@@ -244,6 +244,7 @@ npm run build
 ## 📋 CHECKLIST COMPLETO
 
 ### **Fase 1: Configuração Inicial**
+
 - [ ] Obter Alchemy Polygon API Key
 - [ ] Adicionar API Key ao `.env` (raiz)
 - [ ] Adicionar API Key ao `frontend/.env`
@@ -252,6 +253,7 @@ npm run build
 - [ ] Atualizar `APE_NETWORK` no `.env`
 
 ### **Fase 2: Deploy Mainnet (Polygon)**
+
 - [ ] Obter POL para Polygon mainnet (~50-100 POL) ou migrar MATIC → POL
 - [ ] Mudar `APE_NETWORK` para `polygon:mainnet`
 - [ ] Deploy Token em Polygon mainnet
@@ -266,6 +268,7 @@ npm run build
 - [ ] Testar todas funcionalidades em mainnet
 
 ### **Fase 3: Frontend e Deploy**
+
 - [ ] Obter Thirdweb Client ID (opcional)
 - [ ] Configurar Thirdweb no frontend
 - [ ] Build do frontend (`npm run build`)

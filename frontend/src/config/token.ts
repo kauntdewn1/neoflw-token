@@ -2,7 +2,7 @@
 export const TOKEN_CONFIG = {
   // Polygon Mainnet (ou Mumbai testnet durante desenvolvimento)
   address: process.env.NEXT_PUBLIC_TOKEN_ADDRESS || "",
-  name: "NeoFlowOFF",
+  name: "NEOFlowOFF",
   symbol: "NEOFLW",
   decimals: 18,
   

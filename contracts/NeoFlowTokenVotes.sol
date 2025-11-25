@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract NeoFlowTokenVotes is ERC20Votes, Ownable {
     event Burned(address indexed account, uint256 amount);
 
-    constructor(uint256 initialSupply) ERC20Votes("NeoFlowOFF", "NEOFLW") {
+    constructor(uint256 initialSupply) ERC20Votes("NEOFlowOFF", "NEOFLW") {
         _mint(msg.sender, initialSupply);
         _delegate(msg.sender, msg.sender); // Delegate inicial para o deployer
     }

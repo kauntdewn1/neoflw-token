@@ -24,6 +24,7 @@ Este documento resume **TODAS** as implementações realizadas para o protocolo 
 ## 1. ✅ Smart Contracts Implementados
 
 ### **1.1. NeoFlowToken.sol**
+
 - ✅ ERC20 padrão com função `burn()`
 - ✅ Total Supply: 1,000,000,000 NEOFLW
 - ✅ Ownable para controle administrativo

@@ -1,5 +1,5 @@
-# scripts/deploy_claim.py
-from ape import accounts, project
+# scripts/deploy/deploy_claim.py
+from ape import accounts, project, networks
 import os
 import sys
 
@@ -31,6 +31,9 @@ def main():
     
     print(f"🔗 Token address: {token_address}")
     print("📦 Deploying NeoFlowClaim...")
+    if networks.active_provider:
+        print(f"🌐 Provider: {networks.active_provider.name}")
+    print("")
     
     # Obter instância do contrato de token para passar como parâmetro
     # O contrato espera IERC20, mas podemos passar o endereço diretamente
@@ -45,8 +48,8 @@ def main():
     print(f"🔗 Token address: {token_address}")
     print("=" * 60)
     print("")
-    print(f"🔗 Ver no Etherscan:")
-    print(f"   https://sepolia.etherscan.io/address/{claim_contract.address}")
+    print(f"🔗 Ver no Polygonscan:")
+    print(f"   https://polygonscan.com/address/{claim_contract.address}")
     print("")
     print("⚠️  IMPORTANTE: Lembre-se de transferir tokens para o contrato!")
     print(f"   Transferir tokens via: token.transfer({claim_contract.address}, amount)")

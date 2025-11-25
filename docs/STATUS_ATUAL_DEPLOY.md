@@ -35,6 +35,7 @@
 - ✅ Testes de segurança implementados
 
 ### **5. Documentação**
+
 - ✅ Documentação completa de contratos
 - ✅ Guias de migração para Polygon
 - ✅ Tokenomics documentado
@@ -57,11 +58,13 @@ ape accounts show neoflow-admin --network polygon:mainnet
 ```
 
 **Precisa:**
+
 - **Mínimo:** ~50 POL para deploy básico (Token + Vault + Claim)
 - **Recomendado:** ~100 POL para deploy completo + verificações + configurações
 - **Custo estimado:** ~$30-60 USD
 
 **Se não tiver POL:**
+
 1. Comprar em exchange (Binance, Coinbase, etc)
 2. Fazer bridge de Ethereum → Polygon: https://portal.polygon.technology/polygon/bridge
 3. Transferir para a wallet `0x460F9D0cf3e6E84faC1A7Abc524ddfa66fb64f60`
@@ -78,6 +81,7 @@ npm run compile
 ```
 
 **Verificar:**
+
 - ✅ Sem erros de compilação
 - ✅ Todos os contratos compilados
 - ✅ Arquivos `.json` gerados em `contracts/`
@@ -99,17 +103,23 @@ ape run scripts/deploy/deploy_token --network polygon:mainnet
 ```
 
 **Após deploy:**
+
 1. **Anotar endereço do Token** (será exibido no terminal)
 2. **Atualizar `.env` (raiz):**
+
    ```env
    TOKEN_ADDRESS=0x... (endereço do token)
+
    ```
+
 3. **Atualizar `frontend/.env`:**
+
    ```env
    NEXT_PUBLIC_TOKEN_ADDRESS=0x... (endereço do token)
    ```
 
 **Verificar no Polygonscan:**
+
 - Acessar: `https://polygonscan.com/address/[ENDERECO_TOKEN]`
 - Confirmar que o contrato foi deployado
 
@@ -122,9 +132,12 @@ ape run scripts/deploy/deploy_vault --network polygon:mainnet
 ```
 
 **Após deploy:**
+
 1. **Anotar endereço do Vault**
 2. **Atualizar `frontend/.env`:**
+
    ```env
+
    NEXT_PUBLIC_VAULT_ADDRESS=0x... (endereço do vault)
    ```
 

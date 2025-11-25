@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract NeoFlowToken is ERC20, Ownable {
     event Burned(address indexed account, uint256 amount);
 
-    constructor(uint256 initialSupply) ERC20("NeoFlowOFF", "NEOFLW") {
+    constructor(uint256 initialSupply) ERC20("NEOFlowOFF", "NEOFLW") {
         _mint(msg.sender, initialSupply);
     }
 

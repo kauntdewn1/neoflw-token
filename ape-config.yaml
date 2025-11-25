@@ -35,7 +35,10 @@ networks:
       providers:
         alchemy:
           api_key: ${ALCHEMY_API_KEY}
-          request_timeout: 60
+          request_timeout: 120
+        # Fallback para RPC público (não recomendado para deploy)
+        # publicnode:
+        #   uri: https://polygon-bor-rpc.publicnode.com
     mumbai:
       default_provider: alchemy
       providers:

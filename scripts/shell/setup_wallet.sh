@@ -39,9 +39,6 @@ echo "🔑 Passo 2: Exportando variáveis de ambiente..."
 source .env
 export ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
 export ETHERSCAN_API_KEY=${ETHERSCAN_API_KEY}
-# Ape Framework também precisa dessas variáveis
-export WEB3_ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
-export WEB3_ETHEREUM_SEPOLIA_ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
 
 if [ -n "$ALCHEMY_API_KEY" ]; then
     echo -e "${GREEN}✅ ALCHEMY_API_KEY exportada${NC}"

@@ -13,7 +13,6 @@ cd "$PROJECT_ROOT"
 if [ -f .env ]; then
     source .env
     export ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
-    export WEB3_ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
 else
     echo "❌ Arquivo .env não encontrado!"
     exit 1
