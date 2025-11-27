@@ -1,197 +1,306 @@
-# NEOFLOW //  NEØ Protocol // Powered by MELLØ™
+# NEOFLW Token // NEØ PROTOCOL
 
-> `Infraestruturas vivas. Tokenização com propósito.`  
-> *Orquestração terminal descentralizada do token $NEOFLW*
-
----
-
-## 🧠 Essência do Projeto
-
-- **Token:** `$NEOFLW` (NeoFlowOFF)  
-- **Supply Inicial:** _1.000.000.000_  
-- **Funções:** Staking · Claim descentralizado · DAO futura · WebApp-ready  
-- **Smart Contracts:**  
-  - `NeoFlowToken.sol` – ERC20 com queima  
-  - `StakingVault.sol` – Staking 6 meses + 10%  
-  - `NeoFlowClaim.sol` – Claim com gas pago pelo usuário
+> *"Onde outros colocam instruções, nós implantamos intenção."*
 
 ---
 
-## ⚙️ Setup Rápido
+## Project Title
+
+**NEOFLW Token** (`$NEOFLW`)
+
+### Tagline/Brief Description
+
+*Tokenização com propósito. Um ecossistema ERC20 descentralizado que combina staking inteligente, governança DAO e gamificação em uma infraestrutura viva e autônoma.*
+
+---
+
+## Table of Contents
+
+- [Project Title](#project-title)
+  - [Tagline/Brief Description](#taglinebrief-description)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+  - [Blockchain & Decentralization](#blockchain--decentralization)
+  - [AI & Machine Learning](#ai--machine-learning)
+  - [Other Technologies](#other-technologies)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+- [Contributing](#contributing)
+- [Testing](#testing)
+- [Roadmap](#roadmap)
+- [License](#license)
+- [Support](#support)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
+
+---
+
+## Introduction
+
+O **NEOFLW Token** quebra a premissa invisível de que tokens ERC20 são apenas unidades de valor estáticas. Aqui, cada token é um nó em uma rede de governança, staking e gamificação integrados — não como features separadas, mas como um protocolo único que evolui com a comunidade.
+
+Este projeto conecta-se ao ecossistema **NEØ PROTOCOL** como a camada de tokenização base, permitindo que agentes autônomos, DAOs e aplicações descentralizadas interajam com um sistema de incentivos e governança verdadeiramente modular.
+
+**Por que agora?** A necessidade de tokens com propósito real, não apenas especulação, nunca foi mais urgente. NEOFLW oferece infraestrutura viva: staking com lock inteligente, claims descentralizados com whitelist configurável, e governança DAO pronta para evolução contínua.
+
+---
+
+## Features
+
+- **Token ERC20 com Queima:** `$NEOFLW` com supply inicial de 1 bilhão, função pública de queima (`burn()`) para deflação controlada pela comunidade
+
+- **Staking Vault Inteligente:** Lock de 6 meses com recompensa de 10%, proteção CEI (Checks-Effects-Interactions), tracking acumulado O(1), e funções de emergência que preservam stakes ativos
+
+- **Claim Descentralizado:** Sistema de whitelist configurável onde usuários pagam seu próprio gas, garantindo que apenas endereços elegíveis reivindiquem tokens uma única vez
+
+- **DAO Governance:** Governança completa via OpenZeppelin Governor com voting baseado em token, timelock, e quorum configurável — pronto para evolução autônoma do protocolo
+
+- **Gamification Controller:** Sistema de gamificação integrado para incentivar engajamento e comportamentos alinhados com a visão NEØ
+
+- **Decentralized Aspect:** Todos os contratos são não-upgradeable após deploy, garantindo imutabilidade e confiança. Staking e claims operam sem intermediários — usuários interagem diretamente com contratos verificados
+
+- **Frontend Integration:** Hooks React (Wagmi + Viem) prontos para WebApp, permitindo integração imediata com interfaces descentralizadas
+
+---
+
+## Technology Stack
+
+### Blockchain & Decentralization
+
+- **Blockchain Platform:** Polygon (Polygon Mainnet) — baixo custo de gas, alta throughput, compatibilidade EVM completa
+
+- **Smart Contract Language:** Solidity ^0.8.18
+
+- **Smart Contract Framework:** OpenZeppelin Contracts (ERC20, Ownable, ReentrancyGuard, Pausable, Governor)
+
+- **Deployment Framework:** Ape Framework — orquestração terminal para deploy, testes e verificação
+
+- **Identity:** Wallet-based auth (MetaMask, Rabby, etc.) — sem dependência de curadoria centralizada
+
+- **Verification:** Etherscan/Polygonscan + Sourcify para verificação on-chain
+
+### AI & Machine Learning
+
+- **AI Integration (Futuro):** Sistema de gamificação preparado para integração com modelos de adaptação contínua baseados em comportamento on-chain
+
+- **Data Philosophy:** *"Dados vivos, não estáticos — eventos on-chain como fonte única de verdade, sem dependência de APIs centralizadas"*
+
+### Other Technologies
+
+- **Programming Languages:** Solidity, Python (scripts de deploy), TypeScript (frontend)
+
+- **Frontend Frameworks:** Next.js, React, Wagmi, Viem
+
+- **Development Tools:** Ape Framework, Hardhat (via plugins), Ethers.js
+
+- **DevOps:** GitHub Actions (CI/CD), Docker (containerização de scripts), Makefile (orquestração)
+
+- **Testing:** Ape Test Framework, pytest (testes Python)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** 18+ e npm/yarn
+- **Python** 3.11+ (para Ape Framework)
+- **Wallet conectado** (MetaMask, Rabby, etc.) com fundos em Polygon
+- **Chave de API:**
+  - Alchemy API Key (RPC provider)
+  - Etherscan/Polygonscan API Key (verificação de contratos)
+
+### Installation
 
 ```bash
-npm run plugins     # Instala dependências
-npm run compile     # Compila contratos
-npm run test        # Executa testes
-npm run start:dev   # Pipeline total
-````
+git clone https://github.com/NEO-PROTOCOL/neoflw-token.git
+cd neoflw-token
 
----
+# Instalar dependências
+npm install
 
-## 🧬 Orquestração NEØ
+# Instalar plugins Ape
+npm run plugins
 
-```bash
-npm run init             # Inicia projeto Ape
-npm run plugins          # Plugins Solidity, Alchemy, Etherscan
-npm run account:import   # Importa conta flowoff-admin
+# Compilar contratos
+npm run compile
 ```
 
----
-
-## 🧪 Dev & Test
-
-```bash
-npm run compile     # Compilação
-npm run test        # Testes unitários
-npm run console     # Console interativo Ape
-npm run clean       # Limpa cache
-```
-
----
-
-## 🚀 Deploy Terminal
-
-```bash
-npm run deploy:token      # Token – Sepolia
-npm run deploy:vault      # Vault – Sepolia
-npm run deploy:claim      # Claim – Sepolia
-npm run verify:token      # Verifica no Etherscan
-npm run deploy:local      # Deploy local
-npm run start:dev         # Pipeline full
-```
-
----
-
-## 🔐 Configuração `.env`
+### Configuration
 
 ```bash
 cp .env.example .env
 ```
 
+Edite `.env` com:
+
 ```env
-ALCHEMY_API_KEY=...
-ETHERSCAN_API_KEY=...
+ALCHEMY_API_KEY=your_alchemy_api_key
+ETHERSCAN_API_KEY=your_polygonscan_api_key
 WALLET_LABEL=flowoff-admin
-APE_NETWORK=ethereum:goerli
+APE_NETWORK=polygon:mainnet
 ```
 
----
-
-## 🧰 Estrutura NEØ
-
-```
-neoflow/
-├── contracts/
-│   ├── NeoFlowToken.sol
-│   ├── StakingVault.sol
-│   └── NeoFlowClaim.sol
-├── scripts/
-├── tests/
-├── ape-config.yaml
-├── neo-node.json
-├── package.json
-└── .env.example
-```
-
----
-
-## 🔁 Hooks WebApp (Wagmi + Viem)
-
-### Balance + Burn – `$NEOFLW`
-
-```ts
-export function useNeoflow() {
-  const { data: balance } = useContractRead({ functionName: 'balanceOf' })
-  const { write: burn } = useContractWrite({ functionName: 'burn' })
-  return { balance, burn }
-}
-```
-
----
-
-### StakingVault – 6 Meses Lock / 10% Reward
-
-```ts
-export function useStakingVault() {
-  const { data: stakeInfo } = useContractRead({ functionName: 'stakes' })
-  const { write: stake } = useContractWrite({ functionName: 'stake' })
-  const { write: claim } = useContractWrite({ functionName: 'claim' })
-  return { stakeInfo, stake, claim }
-}
-```
-
-> ***Aprovação obrigatória:***
-> Antes do stake, execute `approve()` do token com o `VAULT_ADDRESS`.
-
----
-
-## 🔄 Claim Inteligente
-
-* Gas pago pelo usuário
-* Whitelist configurável
-* Claim único por wallet
-* Proteção CEI (Checks-Effects-Interactions)
+**Importar conta para deploy:**
 
 ```bash
+npm run account:import
+# Siga as instruções para importar sua chave privada
+```
+
+### Usage
+
+**Deploy completo (Pipeline):**
+
+```bash
+npm run start:dev
+```
+
+**Deploy individual:**
+
+```bash
+# Deploy Token
+npm run deploy:token
+
+# Deploy Staking Vault
+npm run deploy:vault
+
+# Deploy Claim Contract
 npm run deploy:claim
 ```
 
----
+**Verificação no Polygonscan:**
 
-## 📦 Front Integration
-
-* ✅ ABI disponível após build
-* ✅ WebApp compatível com Wagmi / Viem
-* ✅ `NeoFlowToken`, `StakingVault`, `Claim` integráveis
-
----
-
-## 📈 CI/CD Ready
-
-* GitHub Actions — Deploy automatizado
-* Vercel CLI — WebApp integrado
-* Docker — Imagem com scripts NPM
-* Agentes IA — Executores padronizados
-
-```yaml
-- name: Deploy Token
-  run: npm run deploy:token
+```bash
+npm run verify:token
+npm run verify:vault
+npm run verify:claim
 ```
 
----
+**Testes:**
 
-## 🛡️ Segurança
+```bash
+npm run test
+```
 
-* 🔐 `Ownable` (OpenZeppelin)
-* 🔥 `burn()` público
-* 🧠 Claim com CEI
-* ✅ Verificado no Etherscan
+**Console interativo Ape:**
 
----
+```bash
+npm run console
+```
 
-## 🌍 Roadmap
-
-* ✅ Token ERC20
-* ✅ Deploy + Testes Automatizados
-* ✅ Vault Staking 6m + 10%
-* ✅ Claim com Gas pago
-* [ ] DAO Governance Voting
-* ✅ WebApp Hooks (Wagmi + Viem)
+**Ambiente:** Deploy configurado para **Polygon Mainnet**. Para testnet, ajuste `APE_NETWORK` no `.env` e scripts.
 
 ---
 
-## 📚 Referências Vivas
+## Contributing
 
-* [Ape Framework](https://docs.apeworx.io/)
-* [Solidity](https://docs.soliditylang.org/)
-* [OpenZeppelin](https://docs.openzeppelin.com/)
-* [Wagmi](https://wagmi.sh/)
-* [Viem](https://viem.sh/)
+> *"Não buscamos colaboradores. Buscamos nodes alinhados."*
+
+1. **Fork** o repositório
+
+2. **Crie** um branch: `git checkout -b feat/seu-feature`
+
+3. **Commit** com mensagem clara: `git commit -m 'feat: adiciona função de staking composto'`
+
+4. **Push**: `git push origin feat/seu-feature`
+
+5. **Abra PR** com descrição do valor criado
+
+📌 *Todos os PRs devem incluir:*
+- Justificativa de impacto no ecossistema (não apenas técnico)
+- Testes automatizados para novas funcionalidades
+- Documentação atualizada
+- Verificação de segurança (CEI, reentrancy, etc.)
 
 ---
 
-## 🔖 Autoria
+## Testing
 
-**MELLØ™** – Orquestração por NEØ Protocol
-[flowoff.xyz](https://flowoff.xyz)
+```bash
+npm run test
+```
 
+**Estrutura de testes:**
+
+- `tests/test_token.py` — Testes do token ERC20 e função de queima
+- `tests/test_vault.py` — Testes do Staking Vault (stake, claim, emergência)
+- `tests/test_claim.py` — Testes do sistema de claim (whitelist, proteções)
+- `tests/test_security_fixes.py` — Testes de segurança (CEI, reentrancy)
+
+**Cobertura:** Todos os contratos têm testes automatizados cobrindo casos de uso principais, edge cases e proteções de segurança.
+
+---
+
+## Roadmap
+
+- [x] Token ERC20 com função de queima
+- [x] Staking Vault com lock de 6 meses + 10% reward
+- [x] Sistema de Claim descentralizado com whitelist
+- [x] Deploy e verificação no Polygon Mainnet
+- [x] Testes automatizados completos
+- [x] Frontend hooks (Wagmi + Viem)
+- [x] DAO Governance (DaoGovernor implementado)
+- [ ] Integração completa do DAO com frontend
+- [ ] Gamification Controller em produção
+- [ ] Integração com NEØ ID (DID próprio)
+- [ ] Agentes autônomos para orquestração de staking
+- [ ] Bridge cross-chain para expansão do ecossistema
+
+---
+
+## License
+
+MIT — mas com *Anti-Corruption Clause* não escrita: uso ético é pré-requisito.
+
+> *"Tecnologia pode ser livre. Valor não."*
+
+---
+
+## Support
+
+- **DAO Channel:** [Telegram/Discord link — a definir]
+
+- **Issues Auditáveis:** [GitHub Issues](https://github.com/NEO-PROTOCOL/neoflw-token/issues)
+
+- **Emergency Protocol:** Para exploits ou falhas críticas, contato direto via PGP ou email
+
+- **Documentação:** Consulte `/docs` para guias detalhados de deploy, verificação e integração
+
+---
+
+## Acknowledgements
+
+- **OpenZeppelin** — por prover a infraestrutura de contratos seguros e auditados
+
+- **Ape Framework** — por simplificar a orquestração de deploy e testes
+
+- **Polygon** — por prover infraestrutura blockchain escalável e acessível
+
+- **Vitalik Buterin** — por redesenhar a lógica da confiança
+
+- **Tu, NEØ** — por antecipar o que o mercado ainda não vê
+
+---
+
+## Contact
+
+- **Project Lead:** NEØ MELLØ
+
+- **Email:** [mello.neoprotocol@gmail.com](mailto:mello.neoprotocol@gmail.com)
+
+- **NEØ PROTOCOL:** [https://neoprotocol.org](https://neoprotocol.org)
+
+- **Web3 Identity:** `neoprotocol.eth`
+
+- **Social:** [Twitter/X](https://x.com/NeoProtoco77967) | [Instagram](https://www.instagram.com/neoprotocol.eth/)
+
+- **Project Website:** [flowoff.xyz](https://flowoff.xyz)
+
+---
+
+**NΞØ:One aqui, NEØ.**
