@@ -3,6 +3,7 @@
 ## 🎯 Método Mais Rápido: Sourcify
 
 **Por quê?**
+
 - ✅ Não precisa preencher formulários complexos
 - ✅ Funciona automaticamente com Polygonscan
 - ✅ Apenas upload de arquivo JSON
@@ -13,6 +14,7 @@
 ## 📋 PASSO A PASSO (Super Rápido)
 
 ### 1. Acesse Sourcify
+
 ```
 https://sourcify.dev/verifier
 ```
@@ -22,6 +24,7 @@ https://sourcify.dev/verifier
 **Network:** Polygon Mainnet (137)
 
 **Contract Address:**
+
 - Token: `0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2`
 - Claim: `0x407C037906d6441ECD4a3F9064eab2E6CF03b36b`
 - Vault: `0x07E39107d4B35b64f9f2310B9A2B8e5262A4ee41`

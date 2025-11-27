@@ -212,6 +212,7 @@ npm run console
 5. **Abra PR** com descrição do valor criado
 
 📌 *Todos os PRs devem incluir:*
+
 - Justificativa de impacto no ecossistema (não apenas técnico)
 - Testes automatizados para novas funcionalidades
 - Documentação atualizada

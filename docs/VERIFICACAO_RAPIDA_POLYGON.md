@@ -7,6 +7,7 @@
 ## 🚀 OPÇÃO 1: SOURCIFY (Mais Rápido e Fácil) ⭐
 
 ### ✅ Vantagens:
+
 - ✅ **Mais rápido** - apenas upload de arquivos
 - ✅ **Funciona automaticamente** com Polygonscan
 - ✅ **Não precisa preencher formulários** complexos
@@ -15,14 +16,17 @@
 ### 📋 Passo a Passo:
 
 #### 1. Acesse Sourcify
+
 ```
 https://sourcify.dev/
 ```
 
 #### 2. Clique em "Verify Contract"
+
 - Ou acesse diretamente: https://sourcify.dev/verifier
 
 #### 3. Selecione a Rede
+
 - **Network:** Polygon Mainnet
 - **Chain ID:** 137
 
@@ -56,6 +60,7 @@ artifacts/verification/sourcify_standard_json.json
 ```
 
 #### 6. Clique em "Verify"
+
 - Pronto! ✅
 
 ---
