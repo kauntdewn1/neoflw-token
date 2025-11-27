@@ -13,12 +13,12 @@
 
 Se você ver uma URL como:
 ```
-https://eth-sepolia.g.alchemy.com/v2/h47p2nw-NDUbS0nQfSUuV
+https://eth-sepolia.g.alchemy.com/v2/SUA_API_KEY_AQUI
 ```
 
 A parte após `/v2/` é sua API key:
 ```
-h47p2nw-NDUbS0nQfSUuV
+SUA_API_KEY_AQUI
 ```
 
 ## ⚠️ IMPORTANTE: Node API vs Token API
@@ -42,12 +42,12 @@ Você está vendo a **Token API** na imagem, mas precisa da **Node API**!
 1. Abra `.env.local`
 2. Cole sua API key:
 ```env
-ALCHEMY_API_KEY=h47p2nw-NDUbS0nQfSUuV
+ALCHEMY_API_KEY=sua-api-key-aqui
 ```
 
 3. Exporte a variável:
 ```bash
-export ALCHEMY_API_KEY=h47p2nw-NDUbS0nQfSUuV
+export ALCHEMY_API_KEY=sua-api-key-aqui
 ```
 
 ## ✅ Verificar se funciona

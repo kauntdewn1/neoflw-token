@@ -65,7 +65,7 @@ Depois de receber, verifique:
 ```bash
 # No MetaMask, mude para rede Sepolia e veja seu saldo
 # Ou use:
-export ALCHEMY_API_KEY=h47p2nw-NDUbS0nQfSUuV
+export ALCHEMY_API_KEY=sua-api-key-aqui
 # Verificar saldo via API
 ```
 
@@ -74,7 +74,7 @@ export ALCHEMY_API_KEY=h47p2nw-NDUbS0nQfSUuV
 Quando tiver Sepolia ETH suficiente (~0.01 ou mais):
 
 ```bash
-export ALCHEMY_API_KEY=h47p2nw-NDUbS0nQfSUuV
+export ALCHEMY_API_KEY=sua-api-key-aqui
 npm run deploy:token
 ```
 

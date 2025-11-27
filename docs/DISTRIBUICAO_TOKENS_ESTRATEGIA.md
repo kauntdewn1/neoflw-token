@@ -112,6 +112,7 @@ A wallet de deploy atua como **treasury temporária** até que os tokens sejam d
 **Quantidade:** 100,000,000 NEOFLW (10% do total supply)
 
 **Como transferir:**
+
 ```bash
 # Opção 1: Script automatizado (recomendado)
 ape run scripts/setup/transfer_to_claim --network polygon:mainnet
@@ -121,6 +122,7 @@ ape run scripts/setup/transfer_to_claim -- 50 --network polygon:mainnet  # 50M t
 ```
 
 **Após transferir:**
+
 - Configurar whitelist de endereços elegíveis
 - Usuários poderão fazer claim pagando seu próprio gas
 
@@ -149,6 +151,7 @@ ape console --network polygon:mainnet
 ```
 
 **Após transferir:**
+
 - Tokens estarão disponíveis para rewards de staking
 - Usuários podem fazer stake e receber 10% APY após 6 meses
 

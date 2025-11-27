@@ -1,19 +1,15 @@
-# scripts/transfer_to_claim.py
-# Script para transferir tokens para o contrato de Claim
+# scripts/setup/transfer_to_vault.py
+# Script para transferir tokens para o contrato de StakingVault
 #
 # TOKENOMICS NEOFLW - Distribuição:
 # Total Supply: 1,000,000,000 NEOFLW (100%)
 #
-# Comunidade & Airdrop: 250M (25%)
-#   ├─ Initial Airdrop: 100M (10%) → NeoFlowClaim
-#   ├─ Community Rewards: 75M (7.5%)
-#   ├─ Early Adopters: 50M (5%)
-#   └─ Marketing & Partnerships: 25M (2.5%)
+# Gamificação & Rewards: 400M (40%)
+#   ├─ Staking Rewards: 100M (10%) → StakingVault
 #
 # ESTRATÉGIA:
-# - Initial Airdrop (100M): Transferir para NeoFlowClaim
-# - Pode ser transferido gradualmente conforme necessidade
-# - Recomendado: Transferir 100M inicialmente ou conforme whitelist cresce
+# - Staking Rewards (100M): Transferir para StakingVault
+# - Pool de rewards para staking (10% APY, 6 meses lock)
 
 from ape import accounts, project
 import os
@@ -24,46 +20,45 @@ def main():
     
     # Ler endereços dos arquivos
     token_file = "artifacts/addresses/.token_address.txt"
-    claim_file = "artifacts/addresses/.claim_address.txt"
+    vault_file = "artifacts/addresses/.vault_address.txt"
     
     if not os.path.exists(token_file):
         raise ValueError(f"Arquivo {token_file} não encontrado!")
     
-    if not os.path.exists(claim_file):
-        raise ValueError(f"Arquivo {claim_file} não encontrado!")
+    if not os.path.exists(vault_file):
+        raise ValueError(f"Arquivo {vault_file} não encontrado!")
     
     with open(token_file, "r") as f:
         token_address = f.read().strip()
     
-    with open(claim_file, "r") as f:
-        claim_address = f.read().strip()
+    with open(vault_file, "r") as f:
+        vault_address = f.read().strip()
     
     print("=" * 60)
-    print("💰 Transferindo Tokens para o Contrato de Claim")
+    print("💰 Transferindo Tokens para o StakingVault")
     print("=" * 60)
     print()
     print("📊 TOKENOMICS:")
-    print("   Initial Airdrop: 100M NEOFLW (10% do total supply)")
-    print("   Comunidade & Airdrop: 250M NEOFLW (25% do total supply)")
+    print("   Staking Rewards: 100M NEOFLW (10% do total supply)")
+    print("   Gamificação & Rewards: 400M NEOFLW (40% do total supply)")
     print()
     print(f"📊 Token: {token_address}")
-    print(f"🎁 Claim: {claim_address}")
+    print(f"🏦 Vault: {vault_address}")
     print()
     
     # Obter instâncias dos contratos
     token = project.NeoFlowToken.at(token_address)
-    claim = project.NeoFlowClaim.at(claim_address)
+    vault = project.StakingVault.at(vault_address)
     
     # Verificar saldo atual
     owner_balance = token.balanceOf(acct.address)
-    claim_balance = token.balanceOf(claim_address)
+    vault_balance = token.balanceOf(vault_address)
     
     print(f"💰 Seu saldo atual: {owner_balance / 10**18:,.2f} NEOFLW")
-    print(f"🎁 Saldo atual do Claim: {claim_balance / 10**18:,.2f} NEOFLW")
+    print(f"🏦 Saldo atual do Vault: {vault_balance / 10**18:,.2f} NEOFLW")
     print()
     
     # Quantidade a transferir (padrão: 100M conforme tokenomics)
-    # Pode ser sobrescrito via argumento CLI: ape run transfer_to_claim -- <amount_in_millions>
     if len(sys.argv) > 1:
         try:
             amount_millions = float(sys.argv[1])
@@ -73,7 +68,7 @@ def main():
             print(f"⚠️  Argumento inválido '{sys.argv[1]}', usando padrão de 100M")
             amount_to_transfer = 100_000_000 * 10**18
     else:
-        # Padrão: 100M conforme tokenomics (Initial Airdrop)
+        # Padrão: 100M conforme tokenomics (Staking Rewards)
         amount_to_transfer = 100_000_000 * 10**18
         print("📝 Usando quantidade padrão (100M conforme tokenomics)")
     
@@ -90,7 +85,7 @@ def main():
         )
     
     # Confirmar antes de transferir
-    print("⚠️  ATENÇÃO: Você está prestes a transferir tokens para o contrato de Claim")
+    print("⚠️  ATENÇÃO: Você está prestes a transferir tokens para o StakingVault")
     print("   Certifique-se de que esta é a quantidade correta conforme sua estratégia!")
     print()
     
@@ -98,7 +93,7 @@ def main():
     print("⏳ Transferindo tokens...")
     print("⚠️  Você precisará confirmar a transação e digitar a senha da wallet")
     print()
-    token.transfer(claim_address, amount_to_transfer, sender=acct, auto_confirm=True)
+    token.transfer(vault_address, amount_to_transfer, sender=acct, auto_confirm=True)
     
     print()
     print("=" * 60)
@@ -108,16 +103,14 @@ def main():
     
     # Verificar saldo final
     new_owner_balance = token.balanceOf(acct.address)
-    new_claim_balance = token.balanceOf(claim_address)
+    new_vault_balance = token.balanceOf(vault_address)
     
     print(f"💰 Seu saldo agora: {new_owner_balance / 10**18:,.2f} NEOFLW")
-    print(f"🎁 Saldo do Claim agora: {new_claim_balance / 10**18:,.2f} NEOFLW")
+    print(f"🏦 Saldo do Vault agora: {new_vault_balance / 10**18:,.2f} NEOFLW")
     print()
     print("📋 Próximos passos:")
-    print("   1. Configurar whitelist de endereços elegíveis")
-    print("      Use: ape run scripts/setup/setup_whitelist --network polygon:mainnet")
-    print("   2. Ou configurar manualmente via: claim.setWhitelist([users], [amounts])")
-    print()
-    print("📚 Documentação completa: docs/deploy/CLAIM_SETUP.md")
+    print("   1. Usuários podem fazer stake de tokens")
+    print("   2. Após 6 meses de lock, receberão 10% APY em rewards")
+    print("   3. Os rewards serão pagos do pool de 100M tokens")
     print()
 

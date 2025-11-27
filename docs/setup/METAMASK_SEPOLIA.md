@@ -15,7 +15,7 @@ O RPC público (`https://rpc.sepolia.org`) pode estar instável. Use o RPC da Al
 
 ```
 Network Name: Sepolia Test Network
-RPC URL: https://eth-sepolia.g.alchemy.com/v2/h47p2nw-NDUbS0nQfSUuV
+RPC URL: https://eth-sepolia.g.alchemy.com/v2/SUA_API_KEY_AQUI
 Chain ID: 11155111
 Currency Symbol: ETH
 Block Explorer URL: https://sepolia.etherscan.io

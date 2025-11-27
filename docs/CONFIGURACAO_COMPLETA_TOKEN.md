@@ -15,9 +15,18 @@
 
 #### **Deploy Status:**
 
-- ⏳ **Polygon Mainnet:** Ainda não deployado (próximo passo)
+- ✅ **Polygon Mainnet:** Contratos deployados com sucesso
 
-**Nota:** Contratos anteriores em Sepolia Testnet foram removidos das referências do projeto para evitar confusão. Foco agora é 100% em Polygon Mainnet.
+| Contrato | Endereço | Polygonscan |
+|----------|----------|-------------|
+| **NeoFlowToken** | `0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2` | [Ver](https://polygonscan.com/address/0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2) |
+| **StakingVault** | `0x07E39107d4B35b64f9f2310B9A2B8e5262A4ee41` | [Ver](https://polygonscan.com/address/0x07E39107d4B35b64f9f2310B9A2B8e5262A4ee41) |
+| **NeoFlowClaim** | `0x407C037906d6441ECD4a3F9064eab2E6CF03b36b` | [Ver](https://polygonscan.com/address/0x407C037906d6441ECD4a3F9064eab2E6CF03b36b) |
+| **GamificationController** | ⏳ Não deployado | - |
+
+**Wallet de Deploy:** `neoflow-admin` (`0x460F9D0cf3e6E84faC1A7Abc524ddfa66fb64f60`)
+
+**📋 Para informações detalhadas sobre distribuição de tokens, consulte:** [`docs/DISTRIBUICAO_TOKENS_ESTRATEGIA.md`](./DISTRIBUICAO_TOKENS_ESTRATEGIA.md)
 
 #### **Frontend (100% Completo):**
 
@@ -43,11 +52,72 @@
 
 ---
 
-## ⚠️ O QUE FALTA CONFIGURAR
+## ⚠️ PRÓXIMOS PASSOS
 
-### 🔴 **PRIORIDADE CRÍTICA (Fazer Primeiro):**
+### 🔴 **PRIORIDADE CRÍTICA (Fazer Agora):**
 
-#### **1. Obter API Keys e Configurar Ambiente**
+#### **1. Distribuição de Tokens**
+
+**Status Atual:** Todos os 1 bilhão de tokens estão na wallet de deploy (`neoflow-admin`).
+
+**Próximas ações:**
+
+1. **Transferir 100M para NeoFlowClaim** (Initial Airdrop)
+
+   ```bash
+   ape run scripts/setup/transfer_to_claim --network polygon:mainnet
+   ```
+
+2. **Transferir 100M para StakingVault** (Staking Rewards)
+
+   ```bash
+   # Usar console do Ape ou criar script similar
+   ape console --network polygon:mainnet
+   ```
+
+3. **Configurar whitelist no NeoFlowClaim**
+   - Adicionar endereços elegíveis para o airdrop
+
+**📋 Documentação completa:** [`docs/DISTRIBUICAO_TOKENS_ESTRATEGIA.md`](./DISTRIBUICAO_TOKENS_ESTRATEGIA.md)
+
+---
+
+### 🟡 **PRIORIDADE ALTA (Configurações Pendentes):**
+
+#### **2. Verificar Contratos no Polygonscan**
+
+**Status:** ⏳ Pendente - Verificar e publicar código-fonte
+
+```bash
+# Para cada contrato deployado:
+# 1. Acessar: https://polygonscan.com/address/[ENDERECO]
+# 2. Clicar em "Contract" → "Verify and Publish"
+# 3. Usar "Via Standard JSON Input"
+# 4. Upload sourcify_standard_json.json
+# 5. Preencher constructor arguments
+```
+
+#### **3. Atualizar Frontend com Endereços**
+
+**Arquivo:** `frontend/.env`
+
+```env
+# Contratos Polygon Mainnet (ATUALIZAR COM ENDEREÇOS REAIS)
+NEXT_PUBLIC_TOKEN_ADDRESS=0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2
+NEXT_PUBLIC_VAULT_ADDRESS=0x07E39107d4B35b64f9f2310B9A2B8e5262A4ee41
+NEXT_PUBLIC_CLAIM_ADDRESS=0x407C037906d6441ECD4a3F9064eab2E6CF03b36b
+NEXT_PUBLIC_GOVERNOR_ADDRESS=
+NEXT_PUBLIC_GAMIFICATION_ADDRESS=
+
+# Alchemy para frontend
+NEXT_PUBLIC_ALCHEMY_API_KEY=sua-polygon-key-aqui
+```
+
+---
+
+### 🟢 **PRIORIDADE MÉDIA (Opcional mas Recomendado):**
+
+#### **4. Obter API Keys e Configurar Ambiente (Se ainda não configurado)**
 
 ##### **A. Alchemy Polygon API Key**
 
@@ -71,29 +141,7 @@ APE_NETWORK=polygon:mainnet
 WALLET_LABEL=neoflow-admin
 ```
 
-##### **B. Frontend Environment Variables**
-
-**Arquivo:** `frontend/.env`
-
-```env
-# Contratos Polygon (preencher APÓS deploy)
-NEXT_PUBLIC_TOKEN_ADDRESS=
-NEXT_PUBLIC_VAULT_ADDRESS=
-NEXT_PUBLIC_CLAIM_ADDRESS=
-NEXT_PUBLIC_GOVERNOR_ADDRESS=
-NEXT_PUBLIC_GAMIFICATION_ADDRESS=
-
-# Alchemy para frontend
-NEXT_PUBLIC_ALCHEMY_API_KEY=sua-polygon-key-aqui
-
-# WalletConnect (opcional, para mobile)
-NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=
-
-# Thirdweb (opcional, para embed wallet)
-NEXT_PUBLIC_THIRDWEB_CLIENT_ID=
-```
-
-#### **2. Obter POL para Gas Fees (Polygon Mainnet)**
+#### **5. Obter POL para Gas Fees (Se necessário para próximas transações)**
 
 **⚠️ IMPORTANTE:** Desde setembro de 2024, MATIC foi migrado para POL. POL é agora o token nativo de gas e staking no Polygon PoS.
 
@@ -115,7 +163,7 @@ NEXT_PUBLIC_THIRDWEB_CLIENT_ID=
 
 **Referência:** [MATIC to POL Migration - Polygon Blog](https://polygon.technology/blog/matic-to-pol-migration-is-now-live-everything-you-need-to-know)
 
-#### **3. Verificar Wallet Configurada**
+#### **6. Verificar Wallet Configurada**
 ```bash
 # Verificar se wallet está configurada no Ape
 ape accounts list
@@ -124,51 +172,23 @@ ape accounts list
 ape accounts import neoflow-admin
 ```
 
----
-
-### 🟡 **PRIORIDADE ALTA (Fazer Depois):**
-
-#### **4. Deploy em Polygon Mainnet**
-
-```bash
-# 1. Compilar contratos
-npm run compile
-
-# 2. Verificar network no .env
-# APE_NETWORK=polygon:mainnet
-
-# 3. Deploy Token
-ape run scripts/deploy_token.py --network polygon:mainnet
-
-# 4. Anotar endereço do token
-# Exemplo: 0x1234...5678
-
-# 5. Deploy StakingVault (passar endereço do token)
-ape run scripts/deploy_vault.py --network polygon:mainnet
-
-# 6. Deploy NeoFlowClaim (passar endereço do token)
-ape run scripts/deploy_claim.py --network polygon:mainnet
-
-# 7. Deploy GamificationController (opcional)
-ape run scripts/deploy_gamification.py --network polygon:mainnet
-```
-
-**⚠️ IMPORTANTE:** Anotar TODOS os endereços e atualizar `frontend/.env`!
-
-#### **5. Verificar Contratos no Polygonscan**
-
-```bash
-# Para cada contrato deployado:
-# 1. Acessar: https://polygonscan.com/address/[ENDERECO]
-# 2. Clicar em "Contract" → "Verify and Publish"
-# 3. Usar "Via Standard JSON Input"
-# 4. Upload sourcify_standard_json.json
-# 5. Preencher constructor arguments
-```
+**Status:** ✅ Wallet `neoflow-admin` configurada e com saldo de POL
 
 ---
 
 ### 🟢 **PRIORIDADE MÉDIA (Opcional mas Recomendado):**
+
+#### **7. Deploy GamificationController (Opcional)**
+
+```bash
+# Deploy GamificationController
+ape run scripts/deploy/deploy_gamification --network polygon:mainnet
+```
+
+**Após deploy:**
+- Anotar endereço
+- Transferir 300M tokens para o contrato (conforme tokenomics)
+- Atualizar `frontend/.env`
 
 #### **8. Configurar Thirdweb Embed Wallet**
 
@@ -245,27 +265,35 @@ npm run build
 
 ### **Fase 1: Configuração Inicial**
 
-- [ ] Obter Alchemy Polygon API Key
-- [ ] Adicionar API Key ao `.env` (raiz)
-- [ ] Adicionar API Key ao `frontend/.env`
-- [ ] Obter POL para Mumbai testnet (se necessário)
-- [ ] Verificar wallet configurada no Ape
-- [ ] Atualizar `APE_NETWORK` no `.env`
+- [x] Obter Alchemy Polygon API Key
+- [x] Adicionar API Key ao `.env` (raiz)
+- [x] Adicionar API Key ao `frontend/.env`
+- [x] Obter POL para Polygon mainnet
+- [x] Verificar wallet configurada no Ape
+- [x] Atualizar `APE_NETWORK` no `.env`
 
 ### **Fase 2: Deploy Mainnet (Polygon)**
 
-- [ ] Obter POL para Polygon mainnet (~50-100 POL) ou migrar MATIC → POL
-- [ ] Mudar `APE_NETWORK` para `polygon:mainnet`
-- [ ] Deploy Token em Polygon mainnet
-- [ ] Anotar endereço do Token
-- [ ] Deploy StakingVault em Polygon mainnet
-- [ ] Anotar endereço do StakingVault
-- [ ] Deploy NeoFlowClaim em Polygon mainnet
-- [ ] Anotar endereço do NeoFlowClaim
+- [x] Obter POL para Polygon mainnet (~50-100 POL) ou migrar MATIC → POL
+- [x] Mudar `APE_NETWORK` para `polygon:mainnet`
+- [x] Deploy Token em Polygon mainnet
+- [x] Anotar endereço do Token (`0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2`)
+- [x] Deploy StakingVault em Polygon mainnet
+- [x] Anotar endereço do StakingVault (`0x07E39107d4B35b64f9f2310B9A2B8e5262A4ee41`)
+- [x] Deploy NeoFlowClaim em Polygon mainnet
+- [x] Anotar endereço do NeoFlowClaim (`0x407C037906d6441ECD4a3F9064eab2E6CF03b36b`)
 - [ ] Deploy GamificationController (opcional)
 - [ ] Atualizar `frontend/.env` com endereços mainnet
 - [ ] Verificar TODOS os contratos no Polygonscan
 - [ ] Testar todas funcionalidades em mainnet
+
+### **Fase 2.5: Distribuição de Tokens (NOVA FASE)**
+
+- [ ] Transferir 100M tokens para NeoFlowClaim
+- [ ] Transferir 100M tokens para StakingVault
+- [ ] Configurar whitelist no NeoFlowClaim
+- [ ] Deploy GamificationController (quando necessário)
+- [ ] Transferir 300M tokens para GamificationController (quando deployado)
 
 ### **Fase 3: Frontend e Deploy**
 
@@ -326,15 +354,29 @@ Antes do deploy mainnet, verificar:
 - [ ] Endereços anotados em local seguro
 - [ ] Documentação atualizada
 
-### **4. Distribuição de Tokens (Após Deploy):**
+### **4. Distribuição de Tokens:**
+
+**Status Atual:** Todos os 1 bilhão de tokens estão na wallet de deploy.
+
+**Estratégia de Distribuição:**
 
 ```bash
-# Exemplo de distribuição inicial:
-# 1. Transferir tokens para StakingVault (rewards)
-# 2. Transferir tokens para NeoFlowClaim (whitelist)
-# 3. Transferir tokens para GamificationController (quests)
-# 4. Manter reserva para liquidez DEX
+# 1. Transferir 100M para NeoFlowClaim (Initial Airdrop)
+ape run scripts/setup/transfer_to_claim --network polygon:mainnet
+
+# 2. Transferir 100M para StakingVault (Staking Rewards)
+# Usar console do Ape ou script similar
+
+# 3. Manter 800M na wallet de deploy para distribuição gradual:
+#    - Comunidade & Airdrop: 150M
+#    - Governança DAO: 150M
+#    - Equipe & Desenvolvimento: 100M
+#    - Reserva Estratégica: 50M
+#    - Liquidity & Exchange: 50M
+#    - Gamificação: 300M (quando GamificationController for deployado)
 ```
+
+**📋 Documentação completa:** [`docs/DISTRIBUICAO_TOKENS_ESTRATEGIA.md`](./DISTRIBUICAO_TOKENS_ESTRATEGIA.md)
 
 ### **5. Monitoramento Pós-Deploy:**
 
@@ -388,6 +430,8 @@ cd frontend && npm start
 
 ## 📚 DOCUMENTAÇÃO RELACIONADA
 
+- **📋 Distribuição de Tokens (ATUALIZADO):** [`docs/DISTRIBUICAO_TOKENS_ESTRATEGIA.md`](./DISTRIBUICAO_TOKENS_ESTRATEGIA.md) ⭐
+- **Status Deploy:** [`docs/STATUS_ATUAL_DEPLOY.md`](./STATUS_ATUAL_DEPLOY.md)
 - **Migração Polygon:** [`docs/deploy/MIGRACAO_POLYGON.md`](./deploy/MIGRACAO_POLYGON.md)
 - **Checklist Polygon:** [`docs/deploy/CHECKLIST_POLYGON.md`](./deploy/CHECKLIST_POLYGON.md)
 - **Tokenomics:** [`docs/contracts/migr_mainnet_polygon.md`](./contracts/migr_mainnet_polygon.md)
@@ -398,31 +442,40 @@ cd frontend && npm start
 
 ## ✅ RESUMO EXECUTIVO
 
-### **O Que Você Precisa Fazer:**
+### **Status Atual:**
 
-1. **Obter API Keys** (30 min)
-   - Alchemy Polygon API Key
-   - Thirdweb Client ID (opcional)
+✅ **Contratos Deployados em Polygon Mainnet:**
+- NeoFlowToken: `0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2`
+- StakingVault: `0x07E39107d4B35b64f9f2310B9A2B8e5262A4ee41`
+- NeoFlowClaim: `0x407C037906d6441ECD4a3F9064eab2E6CF03b36b`
 
-2. **Configurar Ambiente** (15 min)
-   - Verificar `.env` files
-   - Obter POL mainnet (ou migrar MATIC → POL)
+### **Próximos Passos Urgentes:**
 
-3. **Deploy Mainnet** (2-4 horas)
-   - Deploy em Polygon
-   - Verificar contratos
-   - Testar funcionalidades
+1. **Distribuição de Tokens** (30 min)
+   - Transferir 100M para NeoFlowClaim
+   - Transferir 100M para StakingVault
+   - Configurar whitelist no Claim
+
+2. **Verificação de Contratos** (1-2 horas)
+   - Verificar código-fonte no Polygonscan
+   - Publicar código para transparência
+
+3. **Atualizar Frontend** (15 min)
+   - Adicionar endereços dos contratos no `.env`
+   - Testar conexão com contratos
 
 4. **Frontend e IPFS** (2-4 horas)
    - Build e deploy IPFS
    - Configurar ENS
    - Integrar no flowoff.xyz
 
-### **Tempo Total Estimado: 1 dia**
+### **Tempo Estimado para Próximos Passos: 4-6 horas**
 
-### **Custo Total Estimado: $35-70 USD**
+**📋 Para estratégia completa de distribuição:** [`docs/DISTRIBUICAO_TOKENS_ESTRATEGIA.md`](./DISTRIBUICAO_TOKENS_ESTRATEGIA.md)
 
 ---
 
-**🎯 Pronto para começar? Siga o checklist acima passo a passo!**
+**🎯 Próximo passo: Distribuir tokens conforme tokenomics!**
+
+**📋 Consulte:** [`docs/DISTRIBUICAO_TOKENS_ESTRATEGIA.md`](./DISTRIBUICAO_TOKENS_ESTRATEGIA.md) para estratégia completa.
 

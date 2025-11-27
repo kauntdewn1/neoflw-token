@@ -24,8 +24,9 @@ if [ ! -f .env ]; then
         echo -e "${YELLOW}⚠️  Arquivo .env.local não encontrado${NC}"
         echo "Criando .env básico..."
         cat > .env << EOF
-ALCHEMY_API_KEY=h47p2nw-NDUbS0nQfSUuV
-ETHERSCAN_API_KEY=WYII9Y7JICTMERA89H6P3X9C3JKTIW8V75
+# Copie suas chaves do .env.example ou configure manualmente
+ALCHEMY_API_KEY=your-alchemy-api-key-here
+ETHERSCAN_API_KEY=your-etherscan-api-key-here
 EOF
         echo -e "${GREEN}✅ Arquivo .env criado${NC}"
     fi

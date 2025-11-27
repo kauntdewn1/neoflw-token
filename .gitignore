@@ -61,4 +61,10 @@ artifacts/addresses/*.txt
 artifacts/flattened/*.sol
 artifacts/verification/*.json
 __local__.json
+.build/
+.build/**
+
+# Arquivos do Cursor (podem conter informações sensíveis)
+.cursor/commands/*.md
+!.cursor/commands/readcontract.md
 
