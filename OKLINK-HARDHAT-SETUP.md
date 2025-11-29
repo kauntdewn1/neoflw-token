@@ -117,12 +117,18 @@ export default config;
 Crie ou edite o arquivo `.env` no repositório do contrato:
 
 ```bash
-# Polygon RPC
-POLYGON_RPC_URL=https://polygon-mainnet.infura.io/v3/9afb8749df8f4370aded1dce851d13f4
+# Polygon RPC (usado pelo Hardhat para verificação)
+ALCHEMY_API_KEY=sua_alchemy_api_key_aqui
 
-# Private Key (opcional, apenas se precisar fazer deploy)
+# Private Key (opcional, apenas se precisar fazer deploy via Hardhat)
 PRIVATE_KEY=sua_private_key_aqui
+
+# OKLink API Key (opcional - melhora rate limits)
+# Obter em: https://www.oklink.com/docs/en/#quickstart-guide-getting-started
+OKLINK_API_KEY=sua_oklink_api_key_aqui
 ```
+
+**Nota:** A API Key do OKLink é **opcional**. A verificação funciona sem ela, mas ter uma API key pode melhorar os rate limits.
 
 ### **6. Verificar o Contrato**
 
@@ -139,6 +145,7 @@ npx hardhat okverify --network polygon --contract contracts/NeoFlowToken.sol:Neo
 ```
 
 **Outros contratos disponíveis:**
+
 - `contracts/NeoFlowToken.sol:NeoFlowToken`
 - `contracts/StakingVault.sol:StakingVault`
 - `contracts/NeoFlowClaim.sol:NeoFlowClaim`
@@ -280,6 +287,7 @@ curl -X POST https://www.oklink.com/api/v5/explorer/contract/check-verify-result
 - **OKLink Explorer**: https://www.oklink.com/
 - **Documentação API**: https://www.oklink.com/docs/en/
 - **Lista de Chains Suportadas**: https://www.oklink.com/docs/zh/#quickstart-guide-list-of-supported-chains
+- **Obter API Key**: https://www.oklink.com/docs/en/#quickstart-guide-getting-started
 
 ---
 

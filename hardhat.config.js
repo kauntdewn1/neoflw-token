@@ -28,8 +28,10 @@ module.exports = {
     },
   },
   
-  // Configuração do OKLink Explorer
+  // Configuração do OKLink Explorer (Method 1 - Recomendado)
+  // API Key é opcional - verificação funciona sem ela
   okxweb3explorer: {
+    apiKey: process.env.OKLINK_API_KEY || "", // Opcional - obter em https://www.oklink.com/docs/en/
     customChains: [
       {
         network: "Polygon Mainnet",
