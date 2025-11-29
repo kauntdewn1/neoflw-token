@@ -9,11 +9,11 @@ require("dotenv").config();
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
-    version: "0.8.18", // Mesma versão usada no Ape Framework (ape-config.yaml)
+    version: "0.8.30", // Versão usada no deploy (compatível com ^0.8.18 do código)
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200 // Ajustar conforme configuração do Ape se necessário
+        runs: 200 // Mesma configuração do deploy
       }
     }
   },
@@ -45,7 +45,11 @@ module.exports = {
   },
   
   // Configuração alternativa usando etherscan (Method 2)
+  // O plugin pode usar etherscan como fallback, então configuramos aqui também
   etherscan: {
+    apiKey: {
+      polygon: process.env.OKLINK_API_KEY || process.env.ETHERSCAN_API_KEY || "",
+    },
     customChains: [
       {
         network: "polygon",

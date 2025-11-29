@@ -33,6 +33,7 @@
     "devDependencies": {
         "@nomicfoundation/hardhat-toolbox": "^6.1.0",
         "@okxweb3/hardhat-explorer-verify": "^1.6.5",
+        "@openzeppelin/contracts": "^4.9.6",
         "dotenv": "^17.2.3",
         "hardhat": "^2.27.1"
     }

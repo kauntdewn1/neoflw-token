@@ -11,6 +11,7 @@ Hardhat é configurado **APENAS** como ferramenta auxiliar para verificação de
 
 - **Framework Principal**: Ape Framework (`ape-config.yaml`)
 - **Ferramenta de Verificação**: Hardhat (apenas para OKLink)
+- **Alternativa**: Script Python para verificação via API direta (quando Hardhat não funciona)
 
 ---
 
@@ -167,7 +168,26 @@ npx hardhat okverify --network polygon --contract contracts/NeoFlowToken.sol:Neo
 npx hardhat okverify --network polygon --contract contracts/NeoFlowToken.sol:NeoFlowToken 0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2
 ```
 
-### **8. Verificar Resultado da Verificação**
+### **8. Alternativa: Verificação via API Direta (Python)**
+
+Se o plugin Hardhat não conseguir fazer match do bytecode (erro comum quando há diferenças de configuração entre Ape e Hardhat), use o script Python:
+
+```bash
+python3 scripts/verification/verify_oklink_api.py
+```
+
+**Vantagens:**
+- ✅ Usa arquivo flattened já existente
+- ✅ Não depende de configuração Hardhat
+- ✅ Funciona mesmo com diferenças de compilador
+- ✅ Retorna GUID imediatamente
+
+**O script:**
+- Lê `artifacts/flattened/NeoFlowToken_flattened.sol`
+- Envia para API do OKLink
+- Retorna GUID para verificação de status
+
+### **9. Verificar Resultado da Verificação**
 
 Após executar o comando, você receberá um **GUID**. O tempo médio de processamento é **30-60 segundos**.
 
