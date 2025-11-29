@@ -68,3 +68,4 @@ __local__.json
 .cursor/commands/*.md
 !.cursor/commands/readcontract.md
 
+node_modules
