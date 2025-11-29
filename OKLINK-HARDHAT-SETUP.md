@@ -278,6 +278,32 @@ curl -X POST https://www.oklink.com/api/v5/explorer/contract/check-verify-result
 
 - Certifique-se de que os arquivos de contrato estão no caminho correto
 - Se usar imports, pode precisar fazer flatten do código
+- Use ferramentas como [SolidityFlattery](https://github.com/DaveAppleton/SolidityFlattery) para fazer flatten
+
+### **Erro: "Code format mismatch"**
+
+- O plugin Hardhat usa automaticamente `solidity-standard-json-input` quando necessário
+- Para contratos simples, use `solidity-single-file`
+- Verifique se todos os imports estão resolvidos
+
+### **Erro: "Library not found"**
+
+- Se seu contrato usa bibliotecas externas, você precisa fornecer `libraryInfo`:
+  ```javascript
+  libraryInfo: [
+    {
+      libraryName: "SafeMath",
+      libraryAddress: "0x1234..."
+    }
+  ]
+  ```
+- OKLink suporta até 10 bibliotecas diferentes
+
+### **Verificação está demorando muito**
+
+- Tempo normal: 30-60 segundos
+- Se passar de 2 minutos, verifique o GUID via API
+- Pode haver fila de processamento no OKLink
 
 ---
 
@@ -285,9 +311,22 @@ curl -X POST https://www.oklink.com/api/v5/explorer/contract/check-verify-result
 
 - **Plugin GitHub**: https://github.com/okx/hardhat-explorer-verify
 - **OKLink Explorer**: https://www.oklink.com/
-- **Documentação API**: https://www.oklink.com/docs/en/
+- **Documentação API Completa**: https://www.oklink.com/docs/en/
 - **Lista de Chains Suportadas**: https://www.oklink.com/docs/zh/#quickstart-guide-list-of-supported-chains
 - **Obter API Key**: https://www.oklink.com/docs/en/#quickstart-guide-getting-started
+- **Solidity Flattener**: https://github.com/DaveAppleton/SolidityFlattery
+
+## 📋 Chains Suportadas pelo OKLink
+
+O OKLink suporta verificação nas seguintes chains:
+
+**Mainnets:**
+- ETH, XLAYER, BSC, POLYGON, AVAXC, FTM, OP, ARBITRUM, LINEA, MANTA, CANTO, BASE, SCROLL, OPBNB, POLYGON_ZKEVM
+
+**Testnets:**
+- SEPOLIA_TESTNET, GOERLI_TESTNET, AMOY_TESTNET, MUMBAI_TESTNET, POLYGON_ZKEVM_TESTNET, XLAYER_TESTNET
+
+**Nota:** Para Polygon Mainnet, use `chainShortName: "POLYGON"` na configuração.
 
 ---
 
@@ -297,14 +336,64 @@ curl -X POST https://www.oklink.com/api/v5/explorer/contract/check-verify-result
 # 1. Instalar plugin
 npm install @okxweb3/hardhat-explorer-verify --save-dev
 
-# 2. Verificar contrato
+# 2. Verificar contrato básico
 npx hardhat okverify --network polygon 0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2
 
-# 3. Verificar com nome específico
+# 3. Verificar com nome específico (recomendado para múltiplos contratos)
 npx hardhat okverify --network polygon --contract contracts/NeoFlowToken.sol:NeoFlowToken 0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2
 
-# 4. Verificar proxy
+# 4. Verificar TransparentUpgradeableProxy
 npx hardhat okverify --network polygon --contract contracts/NeoFlowToken.sol:NeoFlowToken --proxy 0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2
+
+# 5. Verificar EIP-897 Proxy (NÃO usar --proxy)
+npx hardhat okverify --network polygon --contract contracts/NeoFlowToken.sol:NeoFlowToken 0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2
+```
+
+## 🔄 Verificação em Lote (Batch Verification)
+
+Para verificar múltiplos contratos simultaneamente, crie um script:
+
+```javascript
+// scripts/batchVerify.js
+async function main() {
+  const contractsToVerify = [
+    {
+      name: "NeoFlowToken",
+      address: "0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2",
+      contractPath: "contracts/NeoFlowToken.sol:NeoFlowToken",
+    },
+    {
+      name: "StakingVault",
+      address: "0x07E39107d4B35b64f9f2310B9A2B8e5262A4ee41",
+      contractPath: "contracts/StakingVault.sol:StakingVault",
+    },
+    // Adicione mais contratos aqui
+  ];
+
+  for (const contract of contractsToVerify) {
+    try {
+      await hre.run("verify:verify", {
+        address: contract.address,
+        contract: contract.contractPath,
+      });
+      console.log(`✅ ${contract.name} verificado em ${contract.address}`);
+    } catch (error) {
+      console.error(`❌ Falha ao verificar ${contract.name}:`, error.message);
+    }
+  }
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+```
+
+Execute com:
+```bash
+npx hardhat run --network polygon scripts/batchVerify.js
 ```
 
 ---
