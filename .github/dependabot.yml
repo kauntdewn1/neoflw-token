@@ -1,0 +1,25 @@
+# Configuração do Dependabot para NEOFLW Token
+# 
+# Nota: Frontend foi removido - este repositório agora contém apenas contratos Solidity
+# e scripts Python (Ape Framework). As vulnerabilidades reportadas são do frontend
+# que existia no histórico do Git, mas foi removido no commit f8f2bce.
+
+version: 2
+updates:
+  # Desabilitar Dependabot para npm (frontend removido)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    # Ignorar vulnerabilidades do frontend removido
+    ignore:
+      - dependency-name: "*"
+        update-types: ["all"]
+  
+  # Habilitar Dependabot para Python (Ape Framework)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
