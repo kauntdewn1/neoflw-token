@@ -33,16 +33,27 @@ def verify_contract():
     source_code = read_flattened_source()
     
     # Preparar payload conforme documentação OKLink
+    # Constructor args: 1_000_000_000 * 10**18 = 0x33b2e3c9fd0803ce8000000 (em hex, 24 bytes)
+    constructor_args = "0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000"
+    
+    # Tentar diferentes versões do compilador (mais comum primeiro)
+    compiler_versions = [
+        "v0.8.18+commit.87f61d96",  # Versão documentada
+        "v0.8.30+commit.8c9944cf",  # Versão detectada no cache
+        "v0.8.30",  # Versão sem commit hash
+    ]
+    
     payload = {
         "chainShortName": CHAIN_SHORT_NAME,
         "contractAddress": CONTRACT_ADDRESS,
         "contractName": CONTRACT_NAME,
         "sourceCode": source_code,
         "codeFormat": "solidity-single-file",
-        "compilerVersion": "v0.8.30+commit.8c9944cf",  # Versão detectada no deploy
+        "compilerVersion": compiler_versions[0],  # Tentar primeira versão
         "optimization": "1",  # Habilitado
         "optimizationRuns": "200",
         "licenseType": "MIT License (MIT)",
+        "contractAbi": "",  # Opcional, mas pode ajudar
     }
     
     # Headers
@@ -58,6 +69,8 @@ def verify_contract():
     print(f"🚀 Enviando verificação para OKLink...")
     print(f"📍 Contrato: {CONTRACT_ADDRESS}")
     print(f"🌐 Chain: {CHAIN_SHORT_NAME}")
+    print(f"🔧 Compiler: {payload['compilerVersion']}")
+    print(f"⚙️  Optimization: {payload['optimization']} (runs: {payload['optimizationRuns']})")
     print("")
     
     try:
