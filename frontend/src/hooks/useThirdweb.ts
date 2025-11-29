@@ -1,7 +1,7 @@
 // src/hooks/useThirdweb.ts
 'use client';
 
-import { useThirdwebContext } from '@thirdweb-dev/react';
+import { useCreateAccount } from '@thirdweb-dev/react'; 
 import { THIRDWEB_CONFIG } from '../config/thirdweb';
 
 /**
@@ -9,11 +9,14 @@ import { THIRDWEB_CONFIG } from '../config/thirdweb';
  * @returns Thirdweb context e configurações
  */
 export function useThirdweb() {
-  const thirdweb = useThirdwebContext();
-
+  // Fix: Import actual ThirdwebClient class and use correctly
+  // Import should be: import { ThirdwebClient } from 'thirdweb';
+  const thirdwebClient = new (require('thirdweb').ThirdwebClient)(THIRDWEB_CONFIG.clientId);
+  const createAccount = useCreateAccount(thirdwebClient);
   return {
-    // Context do Thirdweb
-    thirdweb,
+    // Estado da wallet/account
+    wallet: createAccount,
+    account: createAccount,
     
     // Configurações
     clientId: THIRDWEB_CONFIG.clientId,
@@ -22,7 +25,7 @@ export function useThirdweb() {
     
     // Status
     isConfigured: !!THIRDWEB_CONFIG.clientId,
-    isConnected: !!thirdweb?.wallet,
+    isConnected: !!createAccount,
   };
 }
 

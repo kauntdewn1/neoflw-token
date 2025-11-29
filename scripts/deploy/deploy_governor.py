@@ -30,7 +30,9 @@ def main():
     timelock_executors = [acct.address]   # Quem pode executar
     timelock_admin = acct.address        # Admin (será renunciado depois)
     
-    timelock = project.TimelockController.deploy(
+    # Usamos o wrapper local NeoFlowTimelockController para evitar conflito
+    # de nome com o TimelockController da dependência OpenZeppelin.
+    timelock = project.NeoFlowTimelockController.deploy(
         MIN_DELAY,
         timelock_proposers,
         timelock_executors,
@@ -43,10 +45,25 @@ def main():
     print("")
     
     # 2. Obter endereço do token (assumindo que já foi deployado)
-    # Em produção, você pode ler de um arquivo ou variável de ambiente
-    token_address = input("Digite o endereço do token (NeoFlowTokenVotes): ").strip()
+    # Prioridade: .token_votes_address.txt -> env -> erro explícito
+    token_address = None
+    try:
+        with open(".token_votes_address.txt", "r") as f:
+            token_address = f.read().strip()
+    except FileNotFoundError:
+        token_address = None
+
     if not token_address:
-        raise ValueError("Endereço do token é obrigatório")
+        # Tentar via variável de ambiente
+        import os
+
+        token_address = os.getenv("TOKEN_VOTES_ADDRESS", "").strip()
+
+    if not token_address or not token_address.startswith("0x") or len(token_address) != 42:
+        raise ValueError(
+            "Endereço do token de votos é obrigatório e deve estar em .token_votes_address.txt "
+            "ou na variável de ambiente TOKEN_VOTES_ADDRESS"
+        )
     
     token = project.NeoFlowTokenVotes.at(token_address)
     print(f"   📝 Token address: {token_address}")
@@ -106,11 +123,24 @@ def main():
     print(f"   Token:    {token_address}")
     print("")
     
-    # Detectar rede para explorer
-    network = acct.network.name if hasattr(acct, 'network') else 'mainnet'
-    explorer_url = "https://etherscan.io" if network == "mainnet" else f"https://{network}.etherscan.io"
-    
-    print(f"🔗 Ver no Explorer:")
+    # Detectar rede para explorer (Polygon vs outras)
+    explorer_url = "https://polygonscan.com"
+    if networks.active_provider:
+        ecosystem = (
+            networks.active_provider.network.ecosystem.name
+            if hasattr(networks.active_provider.network, "ecosystem")
+            else None
+        )
+        chain_id = (
+            networks.active_provider.chain_id
+            if hasattr(networks.active_provider, "chain_id")
+            else None
+        )
+        is_polygon = ecosystem == "polygon" or chain_id == 137
+        if not is_polygon:
+            explorer_url = "https://etherscan.io"
+
+    print("🔗 Ver no Explorer:")
     print(f"   Governor:  {explorer_url}/address/{governor.address}")
     print(f"   Timelock: {explorer_url}/address/{timelock.address}")
     print("")

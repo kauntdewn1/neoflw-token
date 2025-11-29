@@ -117,7 +117,7 @@ Este projeto conecta-se ao ecossistema **NEØ PROTOCOL** como a camada de tokeni
 ### Installation
 
 ```bash
-git clone https://github.com/NEO-PROTOCOL/neoflw-token.git
+git clone https://github.com/kauntdewn1/neoflw-token.git
 cd neoflw-token
 
 # Instalar dependências

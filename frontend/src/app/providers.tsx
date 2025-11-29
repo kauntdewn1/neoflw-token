@@ -4,7 +4,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
 import { createConfig, http } from 'wagmi';
-import { polygon, polygonMumbai } from 'wagmi/chains';
+import { polygon } from 'wagmi/chains';
 import { injected, metaMask, walletConnect } from 'wagmi/connectors';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 import { TOKEN_CONFIG } from '../config/token';
@@ -12,14 +12,14 @@ import { THIRDWEB_CONFIG, isThirdwebConfigured } from '../config/thirdweb';
 
 const queryClient = new QueryClient();
 
-// Usar Polygon Mainnet em produção, Mumbai em desenvolvimento
-const isDevelopment = process.env.NODE_ENV === 'development';
-const chains = isDevelopment ? [polygonMumbai] as const : [polygon] as const;
-const currentChain = isDevelopment ? polygonMumbai : polygon;
+// Usar apenas Polygon Mainnet (testnets já não são necessárias)
+const currentChain = polygon;
+// Thirdweb espera um identificador de chain (slug, id ou objeto próprio)
+const thirdwebActiveChain = 'polygon';
 
 // Configuração para suportar MiniApps (Telegram/Farcaster)
 const config = createConfig({
-  chains,
+  chains: [polygon],
   connectors: [
     injected(), // MetaMask e outras wallets injetadas
     metaMask(), // MetaMask específico
@@ -31,7 +31,6 @@ const config = createConfig({
   ],
   transports: {
     [polygon.id]: http(TOKEN_CONFIG.network.rpcUrls[0]),
-    [polygonMumbai.id]: http('https://polygon-mumbai.g.alchemy.com/v2/' + (process.env.NEXT_PUBLIC_ALCHEMY_API_KEY || 'demo')),
   },
   // Configurações para melhor suporte mobile
   ssr: true, // Suporte SSR para Next.js
@@ -43,7 +42,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     return (
       <ThirdwebProvider
         clientId={THIRDWEB_CONFIG.clientId}
-        activeChain={isDevelopment ? polygonMumbai : polygon}
+        activeChain={thirdwebActiveChain}
       >
         <WagmiProvider config={config}>
           <QueryClientProvider client={queryClient}>

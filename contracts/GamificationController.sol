@@ -198,7 +198,7 @@ contract GamificationController is Ownable, ReentrancyGuard, Pausable {
         
         // Achievement 1: Early Adopter (primeiro quest completado)
         if (stats.totalXP >= 500 && !achievementUnlocked[_user][1]) {
-            _unlockAchievement(_user, 1, "Early Adopter", "🚀", "rare");
+            _unlockAchievement(_user, 1, "Early Adopter", "rocket", "rare");
         }
         
         // Achievement 2: Staking Champion (2+ quests de staking)
@@ -206,17 +206,17 @@ contract GamificationController is Ownable, ReentrancyGuard, Pausable {
         if (questCompleted[_user][1]) stakingQuests++;
         if (questCompleted[_user][5]) stakingQuests++;
         if (stakingQuests >= 2 && !achievementUnlocked[_user][2]) {
-            _unlockAchievement(_user, 2, "Staking Champion", "🏆", "epic");
+            _unlockAchievement(_user, 2, "Staking Champion", "trophy", "epic");
         }
         
         // Achievement 3: Level 10
         if (stats.level >= 10 && !achievementUnlocked[_user][3]) {
-            _unlockAchievement(_user, 3, "Level Master", "⭐", "epic");
+            _unlockAchievement(_user, 3, "Level Master", "star", "epic");
         }
         
         // Achievement 4: Whale (50k tokens earned)
         if (stats.totalEarned >= 50000 * 10**18 && !achievementUnlocked[_user][4]) {
-            _unlockAchievement(_user, 4, "Whale", "🐋", "legendary");
+            _unlockAchievement(_user, 4, "Whale", "whale", "legendary");
         }
     }
     
