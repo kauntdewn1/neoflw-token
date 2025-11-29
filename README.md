@@ -63,7 +63,7 @@ Este projeto conecta-se ao ecossistema **NEØ PROTOCOL** como a camada de tokeni
 
 - **Decentralized Aspect:** Todos os contratos são não-upgradeable após deploy, garantindo imutabilidade e confiança. Staking e claims operam sem intermediários — usuários interagem diretamente com contratos verificados
 
-- **Frontend Integration:** Hooks React (Wagmi + Viem) prontos para WebApp, permitindo integração imediata com interfaces descentralizadas
+- **PWA Integration:** Contratos prontos para integração com PWA oficial (repositório separado)
 
 ---
 
@@ -91,9 +91,7 @@ Este projeto conecta-se ao ecossistema **NEØ PROTOCOL** como a camada de tokeni
 
 ### Other Technologies
 
-- **Programming Languages:** Solidity, Python (scripts de deploy), TypeScript (frontend)
-
-- **Frontend Frameworks:** Next.js, React, Wagmi, Viem
+- **Programming Languages:** Solidity, Python (scripts de deploy)
 
 - **Development Tools:** Ape Framework, Hardhat (via plugins), Ethers.js
 

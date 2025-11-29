@@ -112,12 +112,6 @@ verify-all: verify-token verify-vault verify-claim ## Verifica todos os contrato
 dev: install compile test ## Setup completo de desenvolvimento (contratos)
 	@echo "✅ Ambiente de desenvolvimento configurado!"
 
-dev-frontend: ## Roda frontend localmente (porta 3002)
-	@echo "🚀 Iniciando frontend..."
-	@cd frontend && npm run dev
-
-frontend: dev-frontend ## Alias para dev-frontend
-
 # Utilitários
 check-addresses: ## Verifica endereços salvos nos arquivos
 	@echo "📋 Endereços salvos:"
