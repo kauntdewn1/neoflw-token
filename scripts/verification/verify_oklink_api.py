@@ -36,12 +36,9 @@ def verify_contract():
     # Constructor args: 1_000_000_000 * 10**18 = 0x33b2e3c9fd0803ce8000000 (em hex, 24 bytes)
     constructor_args = "0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000"
     
-    # Tentar diferentes versões do compilador (mais comum primeiro)
-    compiler_versions = [
-        "v0.8.18+commit.87f61d96",  # Versão documentada
-        "v0.8.30+commit.8c9944cf",  # Versão detectada no cache
-        "v0.8.30",  # Versão sem commit hash
-    ]
+    # Versão do compilador usada no deploy (conforme cache)
+    # Cache mostra: "version": "0.8.30" com optimizer enabled, runs: 200
+    compiler_version = "v0.8.30+commit.8c9944cf"  # Versão exata do deploy
     
     payload = {
         "chainShortName": CHAIN_SHORT_NAME,
@@ -49,7 +46,7 @@ def verify_contract():
         "contractName": CONTRACT_NAME,
         "sourceCode": source_code,
         "codeFormat": "solidity-single-file",
-        "compilerVersion": compiler_versions[0],  # Tentar primeira versão
+        "compilerVersion": compiler_version,
         "optimization": "1",  # Habilitado
         "optimizationRuns": "200",
         "licenseType": "MIT License (MIT)",
